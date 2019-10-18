@@ -30,6 +30,7 @@ public class CreateAccountPage extends BasePage {
 	private By rideYes = By.xpath("//*[@id=\"RadioRide1\"]");
 	private By rideNo = By.xpath("//*[@id=\"RadioRide0\"]");
 	private By emailTextBox = By.id("dwfrm_profile_customer_email");
+	private By cnfemailTextBox = By.id("dwfrm_profile_customer_emailconfirm");
 	private By confirmEmailTextBox = By.id("dwfrm_profile_customer_emailconfirm");
 	private By passwordTextBox = By.id("dwfrm_profile_login_password");
 	private By confirmPasswordTextBox = By.id("dwfrm_profile_login_passwordconfirm");
@@ -42,8 +43,8 @@ public class CreateAccountPage extends BasePage {
 	//private By createAccountButton = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[12]/div/button");
 	private By createAccountButton=By.name("dwfrm_profile_confirm");
 	private By myAccountTitle = By.className("/account-overview__title ms-font--proxima_nova_semibold");
-	private By emailMsgDE = By.xpath("//span[contains(text(),'Die E-Mail-Adresse ist ungültig.']");
-	private By emailMsg = By.xpath("//span[contains(text(), 'The email address is invalid.']");
+	private By emailMsgDE = By.xpath("//span[contains(text(),'Die E-Mail-Adresse ist ungültig.')]");
+	private By emailMsg = By.xpath("//span[contains(text(), 'The email address is invalid.')]");
 	private By invalidConfirmEmailMessage = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[7]/div/span");
 	private By invalidPassMessage = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[8]/div/span");
 	private By invalidConfirmMessage = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[9]/div/span");
@@ -112,6 +113,11 @@ public class CreateAccountPage extends BasePage {
 		logger.info("Clearing text box Email:");
 		WebDriverUtils.clearElement(driver, emailTextBox);
 	}
+	
+	public void clearCnfEmail() {
+		logger.info("Clearing text box Email confirmation:");
+		WebDriverUtils.clearElement(driver, cnfemailTextBox);
+	}
 
 	public void confirmEmail(String email) {
 		logger.info("Start collecting information to create a new account: confirm email");
@@ -121,7 +127,7 @@ public class CreateAccountPage extends BasePage {
 	
 	public void assertWrongEmailCreateAccount(String emailMsgExpected) {
 		String emailMessage = WebDriverUtils.getElementText(driver, emailMsg);
-		assertEquals(emailMessage, emailMsgExpected, "Invalid email message is displayed");
+		assertEquals(emailMessage, emailMsgExpected, "The email address is invalid.");
 	}
 	
 	public void assertWrongNameCreateAccount(String emailMsgTxtValue) {

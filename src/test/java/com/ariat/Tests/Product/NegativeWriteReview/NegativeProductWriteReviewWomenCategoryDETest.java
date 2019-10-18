@@ -1,6 +1,7 @@
 package com.ariat.Tests.Product.NegativeWriteReview;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.Products.BagsProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
+import com.ariat.Utils.KillChrome;
 
 /**
  * Product page - > Women Category test negative write review on Glove product
@@ -62,9 +64,14 @@ public class NegativeProductWriteReviewWomenCategoryDETest extends BaseTest {
 		bagsProductPage.postReview();
 		logger.info("Finishing product page -> Women Category write negative review recommend product for Glove product test.");
 	}
-
-
+	
 	@AfterTest
+	public void clearBrowserSession() {
+		KillChrome kill = new KillChrome();
+    }
+
+
+	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();

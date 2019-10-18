@@ -1,28 +1,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="negativeTests" verbose="1" >
+<suite name="negativeTests" verbose="1" parallel="tests" thread-count="100">
 <parameter name="environment" value="${environment}" />
-	<test name="negativeTests">
+	<test name="negativeTests" parallel="none" preserve-order="true">
        <classes>
        
+              <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountUKTest" />
               <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountUKTest" />
-              <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountUSTest" />
-              <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountFRTest" />
-              <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountDETest" />
-
+              <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardUKTest" />
               
-              <class name="com.ariat.Tests.Addresses.Countries.NegativeAddAddress.NegativeAddAddressDETest" />
-              <class name="com.ariat.Tests.Addresses.Countries.NegativeAddAddress.NegativeAddAddressUKTest" />
-              <class name="com.ariat.Tests.Addresses.Countries.NegativeAddAddress.NegativeAddAddressFRTest" />
-              <class name="com.ariat.Tests.Addresses.Countries.NegativeAddAddress.NegativeAddAddressUSTest" />
-
-       
-              
-               <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardDETest" />
-               <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardFRTest" />
-               <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardUKTest" />
-               <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardUSTest" />
-      
+               <class name="com.ariat.Tests.Base.KillChromeTests" />
+              <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderUKTest" />
+              <class name="com.ariat.Tests.Product.NegativeAddToCart.ProductNegativeAddToCartWomenCategoryUKTest" />
+              <class name="com.ariat.Tests.Product.NegativeWriteReview.NegativeProductWriteReviewWomenCategoryUKTest" />
+               <class name="com.ariat.Tests.Base.KillChromeTests" />
           
             </classes>
      </test>

@@ -53,7 +53,7 @@ public class WomenFootwearPage extends BasePage{
 	
 	
 	public WomenFootwearRidingPage returnWomenFootwearRidingCategoryPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearRidingCategoryFR);
+		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearRidingCategory);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_40_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(womenFootwearRidingText));
 		return new WomenFootwearRidingPage(driver);

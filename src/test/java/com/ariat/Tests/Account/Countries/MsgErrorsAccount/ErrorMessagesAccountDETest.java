@@ -10,11 +10,10 @@ import com.ariat.Enums.Environments;
 import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageDE;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
-import com.ariat.Pages.Main.CreateAccountPage;
-import com.ariat.Pages.Main.MyAccountPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Utils.GenerateRandomDataUtils;
+import com.ariat.Utils.KillChrome;
 
 
 /**
@@ -28,12 +27,10 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 
 	private Environments environment;
 	private EUCountries euCountry;
-	private CreateAccountPage createAccountPage;
 	private HomePageUK homePageUK;
 	private HomePage homePage;
 	private HomePageDE homePageDE;
 	private SignInPage signInPage;
-	private MyAccountPage myAccountPage;
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -53,7 +50,7 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 	public static final String MISMATCH_PASS_MSG = "Es tut uns leid, aber das stimmt nicht mit den bei uns hinterlegten Daten überein. Prüfen Sie Ihre Eingabe auf Tippfehler und versuchen Sie es erneut.";
 
 	public static final String WRONG_EMAIL = "aaaa@yahoo.com";
-	public static final String OK_EMAIL = "aila.bogasieru@yahoo.com";
+	public static final String OK_EMAIL = "aila.bogasieru@ariat.com";
 	public static final String WRONG_PASSWORD = "Password";
 	public static final String OK_PASSWORD = "Parola12345!";
 	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
@@ -64,36 +61,8 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 		System.setProperty("webdriver.chrome.driver", ABSOLUTE_PATH);
 	}
 
+	
 	@Test(priority = 0)
-	public void errorsAccountTest() {
-		logger.info("Starting error message in creating new account test");
-		homePage = new HomePage(new ChromeDriver());
-		homePage.load(environment.DEVELOPMENT.getURL());
-		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
-		homePageDE = (HomePageDE) homePage.chooseEULocation(euCountry.DE, euCountry.DE.getCurrencyISO());
-		signInPage = homePageDE.returnSignInPage();
-		createAccountPage = signInPage.returnCreateAccountPage();
-		createAccountPage.firstName(FIRST_NAME);
-		createAccountPage.lastNameInfo(LAST_NAME);
-		createAccountPage.selectBirthMonth(BIRTH_MONTH);
-		createAccountPage.selectBirthDay(BIRTH_DAY);
-		//createAccountPage.GenderFemale();
-		createAccountPage.enterEmail(EMAIL);
-		createAccountPage.assertWrongEmailCreateAccountDE(INVALID_EMAIL_MSG);
-		createAccountPage.clearEmail();
-		createAccountPage.enterEmail("aila.bogasieru@ariat.com");
-		createAccountPage.confirmEmail(EMAIL);
-		createAccountPage.assertWrongConfirmEmailCreateAccount(INVALID_EMAIL_MSG);
-		createAccountPage.clearEmail();
-		createAccountPage.enterEmail("aila.bogasieru@ariat.com");
-		createAccountPage.enterPassword(PASSWORD);
-		createAccountPage.confirmPassword(PASSWORD);
-		createAccountPage.createAccountClick();
-		createAccountPage.assertWrongPassCreateAccount(INVALID_PASS_MSG, INVALID_PASS_MSG);
-		logger.info("Finishing error messages in creating new account test...");
-	}
-
-	@Test(priority = 1)
 	public void returningCustomerWrongPasswordTest() {
 		logger.info("Starting returning customer wrong password test...");
 		homePage = new HomePage(new ChromeDriver());
@@ -108,7 +77,7 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 		logger.info("Finishing returning customer wrong password test...");
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 1)
 	public void returningCustomerWrongEmailTest() {
 		logger.info("Starting returning customer wrong email test...");
 		homePage = new HomePage(new ChromeDriver());
@@ -123,7 +92,7 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 		logger.info("Finishing returning customer wrong email test...");
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 2)
 	public void checkInvalidOrderTest() {
 		logger.info("Starting checking invalid order test...");
 		homePage = new HomePage(new ChromeDriver());
@@ -136,6 +105,11 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 		signInPage.assertErrorMessageInexistingOrderNo(ERROR_MESSAGE);
 		logger.info("Finishing checking invalid order test...");
 	}
+	
+	@AfterTest
+	public void clearBrowserSession() {
+		KillChrome kill = new KillChrome();
+    }
 
 	@AfterTest
 	public void tearDown() {
@@ -143,6 +117,5 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 		homePageUK.quit();
 		homePageDE.quit();
 		signInPage.quit();
-		createAccountPage.quit();
 	}
 }

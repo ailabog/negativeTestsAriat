@@ -1,6 +1,7 @@
 package com.ariat.Tests.CreditCard.Countries.NegativeCreditCard;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,6 +16,7 @@ import com.ariat.Pages.Main.AddACreditCardPage;
 import com.ariat.Pages.Main.MyAccountPage;
 import com.ariat.Pages.Main.PaymentInformationPage;
 import com.ariat.Tests.Base.BaseTest;
+import com.ariat.Utils.KillChrome;
 import com.ariat.Pages.Header.SignInPage;
 
 /**
@@ -163,6 +165,11 @@ public class NegativeAddCreditCardDKTest extends BaseTest{
   } 
 	
 	@AfterTest
+	public void clearBrowserSession() {
+		KillChrome kill = new KillChrome();
+    }
+	
+	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();

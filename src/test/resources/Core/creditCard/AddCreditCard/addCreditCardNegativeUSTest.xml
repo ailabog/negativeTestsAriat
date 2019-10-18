@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="addCreditCardUSNegativeTest" verbose="1">
-<parameter name="environment" value="${environment}" />
-	<test name="addCreditCardUSNegativeTest" >
-                <class name="com.ariat.Tests.CreditCard.Countries.AddCreditCardNegative.AddCreditCardNegativeUSTest" />
-         </classes>
-     </test>
-</suite>

@@ -1,6 +1,7 @@
 package com.ariat.Tests.Checkout.NegativeCreateOrder;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -21,6 +22,7 @@ import com.ariat.Pages.Main.PaymentMethodsCheckoutPage;
 import com.ariat.Pages.Products.GlovesProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
+import com.ariat.Utils.KillChrome;
 
 /**
  * Checkout -> Negative Create new order
@@ -143,8 +145,13 @@ public class NegativeCheckoutCreateOrderFITest extends BaseTest {
 		checkoutProcessCompletePage.assertErrMsgOrderNotPlaced(ERROR_ORDER_NOT_PLACED);
 		logger.info("Finishing checkout -> create negative order invalid payment details.");
 	}
-
+	
 	@AfterTest
+	public void clearBrowserSession() {
+		KillChrome kill = new KillChrome();
+    }
+
+	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();

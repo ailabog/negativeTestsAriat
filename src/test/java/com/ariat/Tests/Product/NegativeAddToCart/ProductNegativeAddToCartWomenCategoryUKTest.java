@@ -1,6 +1,7 @@
 package com.ariat.Tests.Product.NegativeAddToCart;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.Main.MyBagPage;
 import com.ariat.Pages.Products.HeritageProductPage;
 import com.ariat.Tests.Base.BaseTest;
+import com.ariat.Utils.KillChrome;
 
 
 /**
@@ -52,13 +54,17 @@ public class ProductNegativeAddToCartWomenCategoryUKTest extends BaseTest {
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		womenCategoryPage = homePageUK.returnWomenCategoryPage();
 		womenFootwearPage = womenCategoryPage.returnWomenFootwearPage();
-		womenFootwearRidingPage=womenFootwearPage.returnWomenFootwearRidingCategoryPage();
 		heritageProductPage.selectAttributeCalf("Slim");
 		myBagPage = heritageProductPage.returnMyBagPage();
 		logger.info("Finishing product page -> Women Category Gloves sub-category product glove negative add to cart test.");
 	}
+  
+  @AfterTest
+	public void clearBrowserSession() {
+		KillChrome kill = new KillChrome();
+  }
 	
-	@AfterTest
+	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();

@@ -121,6 +121,7 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 
 	private By accessoriesCategory = By.xpath("//a[contains(text(),'Accessories']");
 
+
 	private By minicartDialog = By.id("mini-cart-products-ariat");
 	private boolean showMinicart;
 
