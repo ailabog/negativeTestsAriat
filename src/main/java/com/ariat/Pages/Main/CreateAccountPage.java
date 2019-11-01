@@ -55,8 +55,7 @@ public class CreateAccountPage extends BasePage {
 	private By emailMsgTxt = By.xpath("//span[text()='The email address is invalid.']");
 	private By missingMsg =By.xpath("//span[text()='This field is required.']");
 	private By emailMsgTxtDE = By.xpath("//span[text()='Die E-Mail-Adresse ist ungültig.']");
-	private By emailMsgTxtFR = By.xpath("//span[text()='L'adresse courriel n'est pas valide.']");
-	
+	private By emailMsgTxtFR = By.xpath("//span[@for='dwfrm_profile_customer_email']");
 	
 
 	public CreateAccountPage(WebDriver driver) {

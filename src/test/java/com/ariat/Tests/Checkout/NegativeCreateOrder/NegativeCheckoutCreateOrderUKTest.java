@@ -69,10 +69,10 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 
 	public static final String ZIP_CODE1 = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String MOBILE1 = GenerateRandomDataUtils.generateRandomNumber(7);
-	public static final String ERROR_ORDER_NOT_PLACED ="We're sorry that your order could not be placed. This probably happened due to a high order volume or temporary connection errors. Please wait a few minutes and resubmit your order. We won't process your payment until you successfully place your order. If you have further questions, please contact us.";
-
+	
 	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
 	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
+	public static final String ERROR_MESAGE = "Please enter a valid value";
 	
 	@BeforeTest
 	public void setUp() {
@@ -80,7 +80,7 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 	}
 
 	@Test(priority=0)
-	public void checkoutNegativeCreateOrderInvalidShippingAddress() {
+	public void checkoutNegativeCreateOrderInvalidContactInfoAndShippingAddress() {
 		logger.info("Starting checkout -> create negative order invalid shipping address...");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
@@ -89,56 +89,28 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 		womenAccessoriesPage = womenCategoryPage.returnWomenAccessoriesCategoryLeftNavPage();
 		womenAccessoriesGlovesPage = womenAccessoriesPage.returnWomenAccessoriesGlovesCategoryleftNavPage();
 		glovesProductPage = womenAccessoriesGlovesPage.returnGlovesProductPagePage();
-		glovesProductPage.selectAttributeSize("6.5");
+		glovesProductPage.selectAttributeSize("7");
 		myBagPage = glovesProductPage.returnMyBagPage();
 		checkoutPage = myBagPage.returnCheckoutPage();
 		checkoutProcessPage = checkoutPage.returnCheckoutProcessPage();
 		checkoutProcessPage.enterFName(FIRST_NAME);
 		checkoutProcessPage.enterLName(LAST_NAME);
+		checkoutProcessPage.assertWrongDataCreateOrder(ERROR_MESAGE);
 		checkoutProcessPage.enterAddress(ADDRESS);
 		checkoutProcessPage.enterAddress1(ADDRESS1);
+		checkoutProcessPage.assertWrongDataCreateOrder(ERROR_MESAGE);
 		checkoutProcessPage.enterCity(CITY);
 		checkoutProcessPage.enterZipCode(ZIP_CODE);
+		checkoutProcessPage.assertWrongDataCreateOrder(ERROR_MESAGE);
 		checkoutProcessPage.selectArrow();
 		checkoutProcessPage.selectCountry("UK");
 		checkoutProcessPage.enterMobile(MOBILE);
+		checkoutProcessPage.assertWrongDataCreateOrder(ERROR_MESAGE);
 		checkoutProcessPage.enterEmail(EMAIL);
 		logger.info("Finishing checkout -> create negative order invalid shipping address.");
 	}
 
-	@Test(priority = 1)
-	public void checkoutNegativeCreateOrderInvalidPaymentsDetails() {
-		logger.info("Starting checkout -> create negative order invalid payment details...");
-		homePage = new HomePage(new ChromeDriver());
-		homePage.load(environment.DEVELOPMENT.getURL());
-		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
-		womenCategoryPage = homePageUK.returnWomenCategoryPage();
-		womenAccessoriesPage = womenCategoryPage.returnWomenAccessoriesCategoryLeftNavPage();
-		womenAccessoriesGlovesPage = womenAccessoriesPage.returnWomenAccessoriesGlovesCategoryleftNavPage();
-		glovesProductPage = womenAccessoriesGlovesPage.returnGlovesProductPagePage();
-		glovesProductPage.selectAttributeSize("6.5");
-		myBagPage = glovesProductPage.returnMyBagPage();
-		checkoutPage = myBagPage.returnCheckoutPage();
-		checkoutProcessPage = checkoutPage.returnCheckoutProcessPage();
-		checkoutProcessPage.enterFName(FIRST_NAME1);
-		checkoutProcessPage.enterLName(LAST_NAME1);
-		checkoutProcessPage.enterAddress(ADDRESS1);
-		checkoutProcessPage.enterCity(CITY);
-		checkoutProcessPage.enterZipCode(ZIP_CODE1);
-		checkoutProcessPage.selectArrow();
-		checkoutProcessPage.selectCountry("UK");
-		checkoutProcessPage.enterMobile(MOBILE1);
-		checkoutProcessPage.enterEmail(EMAILEXISTENT);
-		paymentMethodsCheckoutPage= checkoutProcessPage.returnPaymentMethodsCheckoutPage();
-		paymentMethodsCheckoutPage.enterCardNameNotlogged(CARD_NAME);
-		paymentMethodsCheckoutPage.enterCardNo(typeCard.INVALID_CARD.getNumber());
-		paymentMethodsCheckoutPage.selectExpirationMonth();
-		paymentMethodsCheckoutPage.selectExpirationYear();
-		paymentMethodsCheckoutPage.enterSecurityCode(typeCard.INVALID_CARD.getCvs());
-		checkoutProcessCompletePage = checkoutProcessPage.returnCheckoutProcessCompletePage();
-		checkoutProcessCompletePage.assertErrMsgOrderNotPlaced(ERROR_ORDER_NOT_PLACED);
-		logger.info("Finishing checkout -> create negative order invalid payment details.");
-	}
+	
 	
 	@AfterTest
 	public void clearBrowserSession() {
@@ -156,6 +128,5 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 		myBagPage.quit();
 		checkoutPage.quit();
 		checkoutProcessPage.quit();
-		myAccountPage.quit();
 	}
 }

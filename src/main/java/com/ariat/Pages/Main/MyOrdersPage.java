@@ -38,14 +38,6 @@ public class MyOrdersPage extends BasePage {
 		return new OrderDetailsPage(driver);
 	}
 
-	public ReturnPolicyPage returnReturnPolicyPage() {
-		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
-		WebDriverUtils.clickOnElementWithWait(driver, returnPolicyLink);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_40_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(returnsPolicyText));
-		return new ReturnPolicyPage(driver);
-	}
-
 	public void searchOrderNo(String expectedOrderNo) {
 		WebDriverUtils.clickOnElementWithWait(driver, orderNoText);
 	

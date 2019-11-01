@@ -29,7 +29,6 @@ import com.ariat.Pages.Header.FindARetailerPage;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Pages.Main.BasePage;
 import com.ariat.Pages.Main.MyAccountWishListPage;
-import com.ariat.Pages.Main.ReturnPolicyPage;
 import com.ariat.Pages.Products.CasualShoeProductPage;
 import com.ariat.Utils.WebDriverUtils;
 
@@ -119,7 +118,7 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 	private By womenFootwearCasualShoesCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/div[2]/div/div[2]/ul[1]/li/ul/li[5]/a]");
 	private By womenAccessoriesText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
 
-	private By accessoriesCategory = By.xpath("//a[contains(text(),'Accessories']");
+	private By accessoriesCategory = By.xpath("//a[text()='Accessories']");
 
 
 	private By minicartDialog = By.id("mini-cart-products-ariat");
@@ -473,14 +472,6 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(emailText));
 		return new OrderStatusPage(driver);
-	}
-
-	public ReturnPolicyPage returnReturnPolicyPage() {
-		WebDriverUtils.scrollBottomPage(driver, returnsFooter);
-		WebDriverUtils.clickOnElementWithWait(driver, returnsFooter);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(returnsFooterText));
-		return new ReturnPolicyPage(driver);
 	}
 
 	public TrackYourOrderPage returnTrackYourOrderPage() {

@@ -11,7 +11,6 @@ import com.ariat.Enums.Environments;
 import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageFR;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
-import com.ariat.Pages.Main.CreateAccountPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Utils.GenerateRandomDataUtils;
@@ -33,6 +32,7 @@ public class ErrorMessagesAccountFRTest extends BaseTest {
 	private HomePageFR homePageFR;
 	private HomePageUK homePageUK;
 	private SignInPage signInPage;
+	private com.ariat.Pages.Main.MyAccountPage myAccountPage;
 
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -109,6 +109,21 @@ public class ErrorMessagesAccountFRTest extends BaseTest {
 		logger.info("Finishing checking invalid order test...");
 	}
 	
+	@Test(priority = 3)
+	public void returningCustomerTest() {
+		logger.info("Starting returning customer test...");
+		homePage = new HomePage(new ChromeDriver());
+		homePage.load(environment.DEVELOPMENT.getURL());
+		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
+		homePageFR = (HomePageFR) homePage.chooseEULocation(euCountry.FR, euCountry.FR.getCurrencyISO());
+		signInPage = homePageFR.returnSignInPage();
+		signInPage.returningCustomer(OK_EMAIL, "Francais");
+		signInPage.returningPassword(OK_PASSWORD);
+		myAccountPage = signInPage.returnMyAccountPage();
+		myAccountPage.logoutMiddle();
+		logger.info("I was succesfully logged out from the application!");
+	}
+	
 	@AfterTest
 	public void clearBrowserSession() {
 		KillChrome kill = new KillChrome();
@@ -120,5 +135,6 @@ public class ErrorMessagesAccountFRTest extends BaseTest {
 		homePageUK.quit();
 		homePageFR.quit();
 		signInPage.quit();
+		myAccountPage.quit();
 	}
 }

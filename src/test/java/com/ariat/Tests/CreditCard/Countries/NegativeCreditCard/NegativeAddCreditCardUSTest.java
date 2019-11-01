@@ -62,7 +62,7 @@ public class NegativeAddCreditCardUSTest extends BaseTest {
 	@Test(priority = 0)
 	public void negativeAddCreditCardUSTest() {
 		String expirationDate = "MONTH/YEAR";
-		logger.info("Starting add negative credit card UK test");
+		logger.info("Starting add negative credit card US test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());

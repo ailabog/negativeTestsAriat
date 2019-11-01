@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ariat.Pages.Main.BasePage;
 import com.ariat.Pages.Main.OrderDetailsPage;
-import com.ariat.Pages.Main.ReturnPolicyPage;
 import com.ariat.Utils.WebDriverUtils;
 
 public class ReturnItemsPage extends BasePage{
@@ -25,11 +24,9 @@ public class ReturnItemsPage extends BasePage{
 	private By itemCheck = By.id("dwfrm_returns_shipments_i0_items_i0_isreturn");
 	private By continueButton = By.id("okcontinue");
 	private By cancelButton = By.id("cancel");
-	private By returnPolicyLink = By.xpath("//*[@id=\"newReturn\"]/div[4]/div[2]/a");
 	private By errorMessageNoReason = By.xpath("//*[@id=\"newReturn\"]/div[2]");
 	private By verifySalesText = By.xpath("//*contains[text(),'Verify sales return']");
 	private By orderDetailsText = By.xpath("//*contains[text(),'Order Details']");
-	private By returnsPolicyText = By.xpath("//*contains[text(),'Returns']");
 	private By quantitySelect =By.name("dwfrm_returns_shipments_i0_items_i0_quantity");
 	
 	
@@ -84,13 +81,6 @@ public class ReturnItemsPage extends BasePage{
 				ExpectedConditions.invisibilityOfElementLocated(orderDetailsText));
 		return new OrderDetailsPage(driver);
 	}
-	
-	public ReturnPolicyPage returnReturnPolicyPage() {
-		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
-		WebDriverUtils.clickOnElementWithWait(driver, returnPolicyLink);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_40_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(returnsPolicyText));
-		return new ReturnPolicyPage(driver);
-	}
+
 }
 

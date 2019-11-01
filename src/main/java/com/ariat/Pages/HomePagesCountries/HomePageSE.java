@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import com.ariat.Pages.Categories.MenCategories.MenCategoryPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenCategoryPage;
+import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenAccessoriesPage;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Pages.Main.BasePage;
 import com.ariat.Utils.WebDriverUtils;
@@ -37,6 +38,8 @@ public class HomePageSE extends BasePage implements List<HomePage> {
 	private By textMsgProduct = By.xpath("//*[@id=\"search-suggestions-results\"]/div/div[1]/div[1]");
 	private By seeAllproductsLink = By.xpath("//*[@id=\"search-suggestions-results\"]/div/div[1]/div[2]/a");
 	private By closeSearch = By.xpath("//*[@id=\"header-main-content\"]/div/div[6]/div[2]/form/div/div[1]/span/span");
+	private By accessoriesCategory = By.xpath("//a[text()=' Accessories']");
+	 private By womenAccessoriesText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
 
 	protected HomePageSE(WebDriver driver) {
 		super(driver);
@@ -89,6 +92,14 @@ public class HomePageSE extends BasePage implements List<HomePage> {
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(menText));
 		return new MenCategoryPage(driver);
+	}
+	
+	public WomenAccessoriesPage returnAccessoriesCategoryPage() {
+		WebDriverUtils.moveToElement(driver, womenCategory);
+		WebDriverUtils.clickOnElement(driver, accessoriesCategory);
+		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
+				ExpectedConditions.invisibilityOfElementLocated(womenAccessoriesText));
+		return new WomenAccessoriesPage(driver);
 	}
 
 	@Override

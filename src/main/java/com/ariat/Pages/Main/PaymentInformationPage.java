@@ -45,6 +45,8 @@ public class PaymentInformationPage extends BasePage {
 	private By deleteButtonDialogDE = By.xpath("//span[text()='Löschen']");
 	private By deleteButtonDeleteCardFR = By.xpath("//span[text()='Supprimer']");
 	private By cancelButtonDeleteCardFR =By.xpath("//span[text()='Annuler']");
+	private By expirationMonthSelect = By.id("dwfrm_paymentinstruments_creditcards_newcreditcard_expiration_year");
+
 
 	
 	public PaymentInformationPage(WebDriver driver) {
@@ -348,17 +350,10 @@ public class PaymentInformationPage extends BasePage {
 		}
 	}
 	
-	public void assertMakeDefaultCreditCard(String expectedCreditCard) {
-		String creditLabel = WebDriverUtils.getElementText(driver, creditNickname);
-		String substring = "DEFAULT | ";
-		String makeDefault = substring + creditLabel;
-		assertEquals(makeDefault , expectedCreditCard, "Credit card made as default is being displayed");
+	public void assertCardExpirationDate(String month) {
+	String creditMessage = WebDriverUtils.getElementText(driver, expirationMonthSelect);
+	assertEquals(creditMessage, expirationMonthSelect, "Credit card is expired");
 	}
-	
-	public void assertMakeDefaultCreditCardDE(String expectedCreditCard) {
-		String creditLabel = WebDriverUtils.getElementText(driver, creditNickname);
-		String substring = "STANDARDKARTE | ";
-		String makeDefault = substring + creditLabel;
-		assertEquals(makeDefault , expectedCreditCard, "Credit card made as default is being displayed");
-	}
+
+
 }

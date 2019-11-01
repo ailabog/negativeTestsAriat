@@ -19,7 +19,6 @@ import com.ariat.Pages.Categories.WomenCategories.WomenClothing.WomenClothingSub
 import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenAccessoriesPage;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Pages.Main.BasePage;
-import com.ariat.Pages.Main.ProductRegistrationPage;
 import com.ariat.Pages.Products.BagsProductPage;
 import com.ariat.Pages.Products.CasualShoeProductPage;
 import com.ariat.Utils.WebDriverUtils;
@@ -430,15 +429,6 @@ public class HomePageUS extends BasePage implements List<HomePage> {
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(menText));
 		return new MenCategoryPage(driver);
-	}
-
-	public ProductRegistrationPage returnProductRegistrationPage() {
-		WebDriverUtils.scrollBottomPage(driver, productRegistrationFooter);
-		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		WebDriverUtils.clickOnElementWithWait(driver, productRegistrationFooter);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_2000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(ariatProductRegistrationText));
-		return new ProductRegistrationPage(driver);
 	}
 
 	public CasualShoeProductPage returnCasualShoeProductPage() {

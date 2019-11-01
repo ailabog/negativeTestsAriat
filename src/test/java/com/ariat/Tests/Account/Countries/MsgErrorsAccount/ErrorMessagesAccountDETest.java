@@ -1,6 +1,7 @@
 package com.ariat.Tests.Account.Countries.MsgErrorsAccount;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -31,6 +32,7 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 	private HomePage homePage;
 	private HomePageDE homePageDE;
 	private SignInPage signInPage;
+    private com.ariat.Pages.Main.MyAccountPage myAccountPage;
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -106,16 +108,32 @@ public class ErrorMessagesAccountDETest extends BaseTest {
 		logger.info("Finishing checking invalid order test...");
 	}
 	
+	@Test(priority = 3)
+	public void returningCustomerTest() {
+		logger.info("Starting returning customer test...");
+		homePage = new HomePage(new ChromeDriver());
+		homePage.load(environment.DEVELOPMENT.getURL());
+		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
+		homePageDE = (HomePageDE) homePage.chooseEULocation(euCountry.DE, euCountry.DE.getCurrencyISO());
+		signInPage = homePageDE.returnSignInPage();
+		signInPage.returningCustomer(OK_EMAIL, "Deutsch");
+		signInPage.returningPassword(OK_PASSWORD);
+		myAccountPage = signInPage.returnMyAccountPage();
+		myAccountPage.logoutMiddle();
+		logger.info("I was succesfully logged out from the application!");
+	}
+	
 	@AfterTest
 	public void clearBrowserSession() {
 		KillChrome kill = new KillChrome();
     }
 
-	@AfterTest
+	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageDE.quit();
 		signInPage.quit();
+		myAccountPage.quit();
 	}
 }

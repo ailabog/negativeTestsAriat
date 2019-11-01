@@ -32,6 +32,7 @@ public class ErrorMessagesAccountBETest extends BaseTest {
 	private HomePageUK homePageUK;
 	private HomePageBE homePageBE;
 	private SignInPage signInPage;
+	private com.ariat.Pages.Main.MyAccountPage myAccountPage;
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -106,6 +107,20 @@ public class ErrorMessagesAccountBETest extends BaseTest {
 		logger.info("Finishing checking invalid order test...");
 	}
 	
+	@Test(priority = 3)
+	public void returningCustomerTest() {
+		logger.info("Starting returning customer test...");
+		homePage = new HomePage(new ChromeDriver());
+		homePage.load(environment.DEVELOPMENT.getURL());
+		homePageBE = (HomePageBE) homePage.chooseEULocation(euCountry.BE, euCountry.BE.getCurrencyISO());
+		signInPage = homePageBE.returnSignInPage();
+		signInPage.returningCustomer(OK_EMAIL, "EnglishUK");
+		signInPage.returningPassword(OK_PASSWORD);
+		myAccountPage = signInPage.returnMyAccountPage();
+		myAccountPage.logoutMiddle();
+		logger.info("I was succesfully logged out from the application!");
+	}
+	
 	@AfterTest
 	public void clearBrowserSession() {
 		KillChrome kill = new KillChrome();
@@ -117,5 +132,6 @@ public class ErrorMessagesAccountBETest extends BaseTest {
 		homePageUK.quit();
 		homePageBE.quit();
 		signInPage.quit();
+		myAccountPage.quit();
 	}
 }

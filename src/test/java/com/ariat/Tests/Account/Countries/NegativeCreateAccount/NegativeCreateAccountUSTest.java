@@ -130,7 +130,6 @@ public class NegativeCreateAccountUSTest extends BaseTest {
 		homePageUK.quit();
 		homePageUS.quit();
 		signInPage.quit();
-		myAccountPage.quit();
 		createAccountPage.quit();
 	}
 }

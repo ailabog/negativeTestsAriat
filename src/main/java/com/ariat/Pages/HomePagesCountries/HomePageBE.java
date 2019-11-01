@@ -40,7 +40,7 @@ public class HomePageBE extends BasePage implements List<HomePage>{
 	private By seeAllproductsLink = By.xpath("//*[@id=\"search-suggestions-results\"]/div/div[1]/div[2]/a");
 	private By closeSearch = By.xpath("//*[@id=\"header-main-content\"]/div/div[6]/div[2]/form/div/div[1]/span/span");
 	private By womenAccessoriesText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
-    private By accessoriesCategory = By.xpath("//a[text()=' Accessories']");
+    private By accessoriesCategory = By.xpath("//a[contains(text(), 'Accessories')]");
 
 	public HomePageBE(WebDriver driver) {
 		super(driver);

@@ -39,7 +39,7 @@ public class NegativeCreateAccountBETest extends BaseTest {
 	private SignInPage signInPage;
 	private MyAccountPage myAccountPage;
 	private String loggingMessage = "The email address is invalid.";
-	private String missingLoggingValue = "The email address is required.";
+	private String missingLoggingValue = "This field is required.";
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -67,7 +67,7 @@ public class NegativeCreateAccountBETest extends BaseTest {
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageBE = (HomePageBE) homePage.chooseEULocation(euCountry.BE, euCountry.BE.getCurrencyISO());
-		signInPage = homePageUK.returnSignInPage();
+		signInPage = homePageBE.returnSignInPage();
 		createAccountPage = signInPage.returnCreateAccountPage();
 		createAccountPage.firstName(FIRST_NAME);
 		createAccountPage.lastNameInfo(LAST_NAME);
@@ -89,7 +89,7 @@ public class NegativeCreateAccountBETest extends BaseTest {
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageBE = (HomePageBE) homePage.chooseEULocation(euCountry.BE, euCountry.BE.getCurrencyISO());
-		signInPage = homePageUK.returnSignInPage();
+		signInPage = homePageBE.returnSignInPage();
 		createAccountPage = signInPage.returnCreateAccountPage();
 		createAccountPage.firstName(FIRST_NAME1);
 		createAccountPage.lastNameInfo(LAST_NAME1);
@@ -111,7 +111,7 @@ public class NegativeCreateAccountBETest extends BaseTest {
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageBE = (HomePageBE) homePage.chooseEULocation(euCountry.BE, euCountry.BE.getCurrencyISO());
-		signInPage = homePageUK.returnSignInPage();
+		signInPage = homePageBE.returnSignInPage();
 		createAccountPage = signInPage.returnCreateAccountPage();
 		createAccountPage.firstName(FIRST_NAME);
 		createAccountPage.lastNameInfo(LAST_NAME);
@@ -131,7 +131,6 @@ public class NegativeCreateAccountBETest extends BaseTest {
 		homePageUK.quit();
 		homePageBE.quit();
 		signInPage.quit();
-		myAccountPage.quit();
 		createAccountPage.quit();
 	}
 }

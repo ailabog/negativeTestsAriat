@@ -49,10 +49,9 @@ public class SignInPage extends BasePage {
 	private By createAccountButton = By.name("dwfrm_login_register");
 	private By createAccountTitle = By.xpath("//*id='main']/div/div/div/div[1]/h1");
 	private By myAccountText = By.xpath("//*[contains(text(), 'My account']");
-	private By errorMessageText = By.className("error-form");
+	private By errorMessageText = By.xpath("//div[@class='error-form']");
 	private By closeButton = By.className("close-button");
 	private By orderDetailsText = By.xpath("//*[contains[text(),'Order Details']");
-
 
 	public SignInPage(WebDriver driver) {
 		super(driver);
@@ -158,7 +157,6 @@ public class SignInPage extends BasePage {
 	public void assertMsg(String actualText, String messageExpected) {
 		WebDriverUtils.findText(driver, actualText);
 		assertEquals(actualText, messageExpected, "Message displayed is correct");
-
 	}
 
 	public void assertErrorMessageInexistingOrderNo(String messageExpectedLabel) {

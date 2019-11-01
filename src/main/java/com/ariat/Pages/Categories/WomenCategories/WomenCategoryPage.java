@@ -287,5 +287,4 @@ public class WomenCategoryPage extends BasePage {
 				ExpectedConditions.invisibilityOfElementLocated(womenText));
 		return new WomenCategoryPage(driver);
 	}
-	
 }

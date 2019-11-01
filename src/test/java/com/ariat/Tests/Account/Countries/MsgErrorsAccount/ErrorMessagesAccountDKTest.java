@@ -1,6 +1,7 @@
 package com.ariat.Tests.Account.Countries.MsgErrorsAccount;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -10,8 +11,6 @@ import com.ariat.Enums.Environments;
 import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageDK;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
-import com.ariat.Pages.Main.CreateAccountPage;
-import com.ariat.Pages.Main.MyAccountPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Utils.GenerateRandomDataUtils;
@@ -33,6 +32,7 @@ public class ErrorMessagesAccountDKTest extends BaseTest {
 	private HomePageUK homePageUK;
 	private HomePageDK homePageDK;
 	private SignInPage signInPage;
+	private com.ariat.Pages.Main.MyAccountPage myAccountPage;
 
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -108,16 +108,32 @@ public class ErrorMessagesAccountDKTest extends BaseTest {
 		logger.info("Finishing checking invalid order test...");
 	}
 	
+	@Test(priority = 3)
+	public void returningCustomerTest() {
+		logger.info("Starting returning customer test...");
+		homePage = new HomePage(new ChromeDriver());
+		homePage.load(environment.DEVELOPMENT.getURL());
+		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
+		homePageDK = (HomePageDK) homePage.chooseEULocation(euCountry.DK, euCountry.DK.getCurrencyISO());
+		signInPage = homePageDK.returnSignInPage();
+		signInPage.returningCustomer(OK_EMAIL, "EnglishUK");
+		signInPage.returningPassword(OK_PASSWORD);
+		myAccountPage = signInPage.returnMyAccountPage();
+		myAccountPage.logoutMiddle();
+		logger.info("I was succesfully logged out from the application!");
+	}
+	
 	@AfterTest
 	public void clearBrowserSession() {
 		KillChrome kill = new KillChrome();
     }
 
-	@AfterTest
+	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageDK.quit();
 		signInPage.quit();
+		myAccountPage.quit();
 	}
 }

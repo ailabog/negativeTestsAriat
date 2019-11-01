@@ -62,9 +62,9 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 
 
 	@Test(priority = 0)
-	public void negativeAddCreditCardFITest() {
+	public void negativeAddCreditCardSETest() {
 		String expirationDate = "MONTH/YEAR";
-		logger.info("Starting add negative credit card FI test");
+		logger.info("Starting add negative credit card SE test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
@@ -83,13 +83,13 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 		addACreditCardPage.selectExpirationMonthCard(MONTH);
 		paymentInfoPage = addACreditCardPage.returnPaymentInformationPage();
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
-		logger.info("Finishing add negative credit card FI test");
+		logger.info("Finishing add negative credit card SE test");
 	}
 
 	@Test(priority = 1)
-	public void negativeAddCreditCardFITestWildCard() {
+	public void negativeAddCreditCardSETestWildCard() {
 		String expirationDate = "MONTH/YEAR";
-		logger.info("Starting add negative credit card FI test");
+		logger.info("Starting add negative credit card SE test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
@@ -108,13 +108,13 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 		addACreditCardPage.selectExpirationMonthCard(MONTH);
 		paymentInfoPage = addACreditCardPage.returnPaymentInformationPage();
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
-		logger.info("Finishing add negative credit card FI test");
+		logger.info("Finishing add negative credit card SE test");
 	}
 
 	@Test(priority = 2)
-	public void negativeAddCreditCardFITestMissingValues() {
+	public void negativeAddCreditCardSETestMissingValues() {
 		String expirationDate = "MONTH/YEAR";
-		logger.info("Starting add negative credit card FI test");
+		logger.info("Starting add negative credit card SE test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
@@ -130,13 +130,13 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 		addACreditCardPage.selectExpirationMonthCard(MONTH);
 		paymentInfoPage = addACreditCardPage.returnPaymentInformationPage();
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
-		logger.info("Finishing add negative credit card FI test");
+		logger.info("Finishing add negative credit card SE test");
 	}
 
 	@Test(priority = 3)
-	public void negativeAddCreditCardFITestExpirationDate() {
+	public void negativeAddCreditCardSETestExpirationDate() {
 		String expirationDate = "MONTH1/YEAR1";
-		logger.info("Starting add a credit card FI test");
+		logger.info("Starting add a credit card SE test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
@@ -155,7 +155,7 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 		addACreditCardPage.selectExpirationMonthCard(MONTH1);
 		paymentInfoPage = addACreditCardPage.returnPaymentInformationPage();
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
-		logger.info("Finishing add a credit card FI test");
+		logger.info("Finishing add a credit card SE test");
 	}
 	
 	@AfterTest

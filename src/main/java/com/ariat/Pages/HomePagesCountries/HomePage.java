@@ -32,7 +32,9 @@ public class HomePage extends BasePage implements List<HomePage> {
 	private By closeLocationx = By.xpath("//*[@id=\"ext-gen44\"]/body/div[6]/div[1]/a/span");
 	private By ariatLogo = By.className("global-nav-logo-svg");
 	private By saveAndContinueLocationButton = By.id("btnSaveContext");
-	private By chooseLocationArrow = By.xpath("//*[@id=\"chooserTriggerHeader\"]/span/span");
+	//private By chooseLocationArrow = By.xpath("//*[@id=\"chooserTriggerHeader\"]/span/span");
+	private By chooseLocationArrow = By.xpath("//span[@class='icon icon-full-arrow-down ms_desktop-only']");
+	
 	private By listCountries = By.xpath("//*[@id=\"contextChooser\"]/ul[1]");
 	private By countrySelectorWindow = By.xpath("//span[@class='icon icon-full-arrow-down ms_desktop-only']");
 	private By continueShoppingButton = By.xpath("//*[@id=\"button\"]/button");
@@ -101,6 +103,8 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.clickOnElementWithWait(driver, country.BE.getLocator());
 			}
 			return new HomePageBE(driver);
+
+		
 		case "France":
 			logger.info("I choose France as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
@@ -148,7 +152,8 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.clickOnElementWithWait(driver, country.DK.getLocator());
 				return new HomePageDK(driver);
 			}
-				
+		case "Australia":
+		
 		case "Finland":
 			logger.info("I choose Finland as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
@@ -165,7 +170,8 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageFI(driver);
 
-			// TO DO ADD THE REST OF THE COUNTRIES FROM THE ENUM
+		
+		// TO DO ADD THE REST OF THE COUNTRIES FROM THE ENUM
 		default:
 			throw new RuntimeException("Country" + country + "not supported");
 		}
@@ -191,24 +197,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageUS(driver);
 
-       //local version
-		case "(United Kingdom)":
-			logger.info("I choose English United Kingdom as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrolltoElement(driver, euCountry.UK.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.clickOnElementWithWait(driver, euCountry.UK.getLocator());
-			}
-			return new HomePageUK(driver); 
-			
-		/*Jenkins version 
+		//Jenkins version 
 			case "(United Kingdom)":
 			logger.info("I choose English United Kingdom as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
@@ -225,7 +214,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.clickOnElementWithWait(driver, euCountry.UK.getLocator());
 				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
 			}
-			return new HomePageUK(driver);*/
+			return new HomePageUK(driver);
 
 		case "(Belgium)":
 			logger.info("I choose English Belgium as location");
@@ -241,6 +230,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageBE(driver);
 
+	
 		case "(Ireland)":
 			logger.info("I choose English Ireland as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
@@ -300,6 +290,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageDE(driver);
 
+
 		case "(Finland)":
 			logger.info("I choose English  Finland as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
@@ -315,6 +306,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 
 			}
 			return new HomePageFI(driver);
+
 
 		case "(Netherlands)":
 			logger.info("I choose English Netherlands as location");
@@ -345,6 +337,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
 			}
 			return new HomePageLU(driver);
+
 
 		case "(Sweden)":
 			logger.info("I choose English  Sweden as location");

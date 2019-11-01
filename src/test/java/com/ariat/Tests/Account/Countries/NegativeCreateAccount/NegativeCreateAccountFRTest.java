@@ -40,7 +40,7 @@ public class NegativeCreateAccountFRTest extends BaseTest {
 	private String loggingMessage = "L'adresse courriel n'est pas valide.";
 	
 	
-	private String missingLoggingValue = "The email address is required.";
+	private String missingLoggingValue = "This field is required.";
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -132,7 +132,6 @@ public class NegativeCreateAccountFRTest extends BaseTest {
 		homePageUK.quit();
 		homePageFR.quit();
 		signInPage.quit();
-		myAccountPage.quit();
 		createAccountPage.quit();
 	}
 }

@@ -39,7 +39,7 @@ public class NegativeCreateAccountSETest extends BaseTest {
 	private SignInPage signInPage;
 	private MyAccountPage myAccountPage;
 	private String loggingMessage = "The email address is invalid.";
-	private String missingLoggingValue = "The email address is required.";
+	private String missingLoggingValue = "This field is required.";
 
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
@@ -131,7 +131,6 @@ public class NegativeCreateAccountSETest extends BaseTest {
 		homePageUK.quit();
 		homePageSE.quit();
 		signInPage.quit();
-		myAccountPage.quit();
 		createAccountPage.quit();
 	}
 }

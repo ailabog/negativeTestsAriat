@@ -1,5 +1,7 @@
 package com.ariat.Pages.Main;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -62,6 +64,7 @@ public class CheckoutProcessPage extends BasePage {
 	private By confirmPayPal = By.id("confirmButtonTop");
 	private By nextBtnPayPal = By.id("btnNext");
 	private By loginPayPal = By.id("btnLogin");
+	private By emailMsgTxt = By.xpath("//div[@class='el-form-item__error']");
 
 	public CheckoutProcessPage(WebDriver driver) {
 		super(driver);
@@ -99,7 +102,6 @@ public class CheckoutProcessPage extends BasePage {
 			WebDriverUtils.scroll500Down(driver, selectOptionFR);
 			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
 			break;
-
 		case "UK":
 			WebDriverUtils.clickOnElementWithWait(driver, selectOption);
 			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
@@ -215,6 +217,11 @@ public class CheckoutProcessPage extends BasePage {
 		logger.info("Checking express delivery..");
 		WebDriverUtils.clickOnElementWithWait(driver, expressCheck);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+	}
+	
+	public void assertWrongDataCreateOrder(String emailMsgTxtValue) {
+		String nameMessage = WebDriverUtils.getElementText(driver, emailMsgTxt);
+		assertEquals(nameMessage, emailMsgTxtValue, "Invalid name message is displayed");
 	}
 
 	public void expandPromoCode() {

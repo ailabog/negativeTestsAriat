@@ -110,7 +110,6 @@ public class NegativeAddCreditCardFRTest extends BaseTest{
 		paymentInfoPage = addACreditCardPage.returnPaymentInformationPage();
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
 		logger.info("Finishing add negative credit card FR test");
-
 	}
 
 
@@ -135,7 +134,6 @@ public class NegativeAddCreditCardFRTest extends BaseTest{
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
 		logger.info("Finishing add negative credit card FR test");
 	}
-
 
 
 	@Test(priority = 3)
