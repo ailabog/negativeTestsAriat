@@ -3,8 +3,6 @@ package com.ariat.Pages.Main;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import com.ariat.Pages.ReturnItemsPage;
 import com.ariat.Utils.WebDriverUtils;
 
 /**
@@ -18,7 +16,6 @@ public class OrderDetailsPage extends BasePage {
 
 	private By returnToMyOrdersLink = By.xpath("//a[text()='Return to My Orders']");
 	private By myOrdersText = By.xpath("//*contains[text(),'My orders']");
-	private By createReturnButton = By.xpath("//form[@id='newreturn']/button");
 	private By backToMyOrdersLink = By.xpath("//*[@id=\"main\"]/div/div[1]/div/a/span[2]");
 
 	public OrderDetailsPage(WebDriver driver) {
@@ -31,15 +28,7 @@ public class OrderDetailsPage extends BasePage {
 				ExpectedConditions.invisibilityOfElementLocated(myOrdersText));
 		return new MyOrdersPage(driver);
 	}
-	
-	public ReturnItemsPage returnReturnItemsPage() {
-		WebDriverUtils.scrollMiddlePage(driver, createReturnButton);
-		WebDriverUtils.clickOnElementWithWait(driver, createReturnButton);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_40_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(myOrdersText));
-		return new ReturnItemsPage(driver);
-	}
-	
+
 	public MyOrdersPage returnMyOrdersBackFromOrderDetailsPage() {
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, backToMyOrdersLink);

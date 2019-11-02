@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.ariat.Pages.Categories.WomenCategories.WomenCategoryPage;
-import com.ariat.Pages.Categories.WomenCategories.WomenFootwear.WomenFootwearSubcategories.WomenFootwearCasualShoesPage;
 import com.ariat.Utils.WebDriverUtils;
 
 /**
@@ -139,13 +137,6 @@ public class MyAccountPage extends BasePage {
 		}
 	}
 
-	public WomenFootwearCasualShoesPage returnWomenFootwearCasualShoesPage() {
-		WebDriverUtils.moveToElement(driver, womenCategory);
-		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearCasualShoesCategory);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_6000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(footwearCasualShowsText));
-		return new WomenFootwearCasualShoesPage(driver);
-	}
 
 	public void logout() {
 		logger.info("Logging out from the application:");

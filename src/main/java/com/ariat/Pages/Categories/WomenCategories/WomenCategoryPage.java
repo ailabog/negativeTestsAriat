@@ -4,14 +4,9 @@ package com.ariat.Pages.Categories.WomenCategories;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import com.ariat.Pages.Categories.WomenCategories.WomenFootwearCountry.WomenFootwearCountrySubcategories.WomenFootwearCasualShoesPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenAccessoriesPage;
-import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenClothingPage;
-import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenFeaturedPage;
-import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenFootwearPage;
 import com.ariat.Pages.Main.BasePage;
 import com.ariat.Pages.Products.BagsProductPage;
-import com.ariat.Pages.Products.HeritageProductPage;
 import com.ariat.Utils.WebDriverUtils;
 
 /**
@@ -24,22 +19,10 @@ import com.ariat.Utils.WebDriverUtils;
 
 public class WomenCategoryPage extends BasePage {
 
-	private By womenFootwearCategory = By.xpath("//a[@class='global-nav-level-2-label ']");
-	private By womenFootwearCategoryDE = By.linkText("Schuhe");
 	
-	private By womenFootwearCategoryFR = By.linkText("Bottes et boots");
-	private By womenFootwearText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
-	private By womenClothingCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/div[2]/div/div[2]/ul[2]/li/a");
-
-	private By womenClothingText = By.xpath("//*[@id=\"main\"]/div/div[2]/div[2]/div[1]/span[1]");
 	private By womenAccesoriesCategory = By
 			.xpath("//*[@id=\"global-nav-container\"]/li[1]/div[2]/div/div[2]/ul[3]/li/a");
 	private By womenAccessoriesText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
-	private By womenFeaturedCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/div[2]/div/div[2]/ul[8]/li/a");
-	private By womenFeaturedText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
-    private By womenFootwearCategoryLeftNav = By.linkText("Footwear");
-	
-	private By leftnavClothing = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[3]/ul/li[2]/a");
 	private By womenCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/a");
 	private By womenText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
 	private By sortDropWomenCategoryUp = By.cssSelector("=.ui-state-hover .icon-arrow-right");
@@ -68,9 +51,7 @@ public class WomenCategoryPage extends BasePage {
 	private By womenAccesoriesCategoryLefytNavFR= By.linkText("Accessoires");
 	private By expandIconFootwear = By.xpath("//*[@id=\"main\"]/div[1]/ul/li[1]/a/span[2]");
 	private By expandIconAccessories = By.xpath("//*[@id=\"main\"]/div[1]/ul/li[3]/a/span[2]");
-	private By womenFootwearCasualShoesCategory = By.linkText("Casual Shoes");
-	private By casualShoesText = By.xpath("//*[@id=\"main\"]/div/div[2]/div[2]/div[1]/span[1]");
-	
+		
 	private By garmentBagProduct = By.xpath("//*[@id=\"6637647889b5b1522cd5df99b6\"]/div[1]/a/picture/img");
 	private By garmentText = By.xpath("//*contains[text()='Garment Bag']");
 
@@ -187,42 +168,13 @@ public class WomenCategoryPage extends BasePage {
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 	}
 
-
-	public WomenFootwearPage returnWomenFootwearPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearCategoryLeftNav);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(womenFootwearText));
-		return new WomenFootwearPage(driver);
-	}
-	
-	public WomenFootwearPage returnWomenFootwearPageFR() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearCategoryFR);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(womenFootwearText));
-		return new WomenFootwearPage(driver);
-	}
-	
-	public WomenFootwearPage returnWomenFootwearPageDE() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearCategoryDE);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(womenFootwearText));
-		return new WomenFootwearPage(driver);
-	}
-
-	public WomenClothingPage returnWomenClothingCategoryPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenClothingCategory);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(womenClothingText));
-		return new WomenClothingPage(driver);
-	}
-
 	public WomenAccessoriesPage returnWomenAccessoriesCategoryPage() {
 		WebDriverUtils.clickOnElementWithWait(driver, womenAccesoriesCategory);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(womenAccessoriesText));
 		return new WomenAccessoriesPage(driver);
 	}
-	
+
 	
 	public WomenAccessoriesPage returnWomenAccessoriesCategoryLeftNavPage() {
 		WebDriverUtils.clickOnElementWithWait(driver, womenAccesoriesCategoryLefytNav);
@@ -245,34 +197,13 @@ public class WomenCategoryPage extends BasePage {
 		return new WomenAccessoriesPage(driver);
 	}
 
-	public WomenFeaturedPage returnWomenFeaturedCategoryPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenFeaturedCategory);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(womenFeaturedText));
-		return new WomenFeaturedPage(driver);
-	}
-	
 	public HeritageProductPage returnHeritageProduct() {
 		WebDriverUtils.clickOnElementWithWait(driver, heritageProductLink);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(heritaheProductText));
 		return new HeritageProductPage(driver);
 	}
-	
-	public WomenFootwearCasualShoesPage returnWomenFootwearCasualShoesCategoryPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, womenFootwearCasualShoesCategory);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(casualShoesText));
-		return new WomenFootwearCasualShoesPage(driver);
-	}
 		
-	public WomenClothingPage returnWomenClothingCategoryLeftNavPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, leftnavClothing);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(womenClothingText));
-		return new WomenClothingPage(driver);
-	}
-	
 	public BagsProductPage returnBagsProductPage() {
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, garmentBagProduct);

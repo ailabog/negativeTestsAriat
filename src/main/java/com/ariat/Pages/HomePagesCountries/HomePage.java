@@ -120,55 +120,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageFR(driver);
 
-		case "Ireland":
-			logger.info("I choose Ireland as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollDown(driver, country.IE.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, country.IE.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.clickOnElementWithWait(driver, country.IE.getLocator());
-			}
-			return new HomePageIE(driver);
-
-		case "Denmark":
-			logger.info("I choose Denmark as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollDown(driver, country.DK.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, country.DK.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.clickOnElementWithWait(driver, country.DK.getLocator());
-				return new HomePageDK(driver);
-			}
-		case "Australia":
-		
-		case "Finland":
-			logger.info("I choose Finland as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollDown(driver, country.FI.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, country.FI.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.clickOnElementWithWait(driver, country.FI.getLocator());
-			}
-			return new HomePageFI(driver);
-
 		// TO DO ADD THE REST OF THE COUNTRIES FROM THE ENUM
 		default:
 			throw new RuntimeException("Country" + country + "not supported");
@@ -228,35 +179,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageBE(driver);
 	
-		case "(Ireland)":
-			logger.info("I choose English Ireland as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollLittDown(driver, euCountry.IE.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, euCountry.IE.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-			}
-			return new HomePageIE(driver);
-
-		case "(Denmark)":
-			logger.info("I choose English Denmark as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollLittDown(driver, euCountry.DK.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, euCountry.DK.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-			}
-			return new HomePageDK(driver);
 
 		case "(France)":
 			logger.info("I choose Francais France as location");
@@ -286,53 +208,7 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
 			}
 			return new HomePageDE(driver);
-
-		case "(Finland)":
-			logger.info("I choose English  Finland as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollLittDown(driver, euCountry.FI.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, euCountry.FI.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-
-			}
-			return new HomePageFI(driver);
-
-		case "(Netherlands)":
-			logger.info("I choose English Netherlands as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scroll350Down(driver, euCountry.NL.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, euCountry.NL.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-			}
-			return new HomePageNL(driver);
-
-		case "(Luxembourg)":
-			logger.info("I choose English  Luxembourg as location");
-			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
-			if (WebDriverUtils.findElement(driver, countrySelectorWindow) != null) {
-				WebDriverUtils.clickOnElementWithWait(driver, listCountries);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				WebDriverUtils.scrollLittDown(driver, euCountry.LU.getLocator());
-				WebDriverUtils.clickOnElementWithWait(driver, euCountry.LU.getLocator());
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-				logger.info("Saving location...");
-				WebDriverUtils.clickOnElementWithWait(driver, saveAndContinueLocationButton);
-				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-			}
-			return new HomePageLU(driver);
-
+		
 		case "(Sweden)":
 			logger.info("I choose English  Sweden as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);

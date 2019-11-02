@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ariat.Pages.Categories.MenCategories.MenCategoryPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenCategoryPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenAccessoriesPage;
 import com.ariat.Pages.Header.SignInPage;
@@ -26,13 +25,10 @@ public class HomePageSE extends BasePage implements List<HomePage> {
 	
 	private By womenCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/a");
 	private By womenText = By.xpath("//*contains(text(),'Women']");
-	private By menCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[2]/a");
-	private By menText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
 	private By returningCustomerText = By.xpath("//*text()='Returning customer']");
 	private By checkOrderText = By.xpath("//*text()='Check an order / request return']");
 	private By newcustomerText = By.xpath("//*text()='New Customer']");
 	private By signIn = By.xpath("//a[text()= 'Sign In']");
-	
 	private By search = By.xpath("//*[@id=\"header-main-content\"]/div/div[5]/div/div[1]/span[2]");
 	private By searchTextBox = By.xpath("//input[@placeholder='Search for Products']");
 	private By textMsgProduct = By.xpath("//*[@id=\"search-suggestions-results\"]/div/div[1]/div[1]");
@@ -85,13 +81,6 @@ public class HomePageSE extends BasePage implements List<HomePage> {
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(womenText));
 		return new WomenCategoryPage(driver);
-	}
-
-	public MenCategoryPage returnMenCategoryPage() {
-		WebDriverUtils.clickOnElementWithWait(driver, menCategory);
-		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
-				ExpectedConditions.invisibilityOfElementLocated(menText));
-		return new MenCategoryPage(driver);
 	}
 	
 	public WomenAccessoriesPage returnAccessoriesCategoryPage() {
