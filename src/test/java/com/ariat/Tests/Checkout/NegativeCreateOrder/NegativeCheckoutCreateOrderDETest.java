@@ -45,8 +45,7 @@ public class NegativeCheckoutCreateOrderDETest extends BaseTest {
 	private GlovesProductPage glovesProductPage;
 	private CheckoutPage checkoutPage;
 	private CheckoutProcessPage checkoutProcessPage;
-	private CheckoutProcessCompletePage checkoutProcessCompletePage;
-	private PaymentMethodsCheckoutPage paymentMethodsCheckoutPage;
+
 
 	public static final String CARD_NAME_NOK = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String FIRST_NAME_NOK = GenerateRandomDataUtils.generateRandomNumber(5);

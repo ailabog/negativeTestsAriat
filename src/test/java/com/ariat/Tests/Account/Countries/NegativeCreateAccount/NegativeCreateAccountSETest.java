@@ -12,7 +12,6 @@ import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageSE;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.Main.CreateAccountPage;
-import com.ariat.Pages.Main.MyAccountPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Utils.GenerateRandomDataUtils;
@@ -37,7 +36,6 @@ public class NegativeCreateAccountSETest extends BaseTest {
 	private HomePageUK homePageUK;
 	private HomePageSE homePageSE;
 	private SignInPage signInPage;
-	private MyAccountPage myAccountPage;
 	private String loggingMessage = "The email address is invalid.";
 	private String missingLoggingValue = "This field is required.";
 
@@ -115,7 +113,7 @@ public class NegativeCreateAccountSETest extends BaseTest {
 		createAccountPage = signInPage.returnCreateAccountPage();
 		createAccountPage.firstName(FIRST_NAME);
 		createAccountPage.lastNameInfo(LAST_NAME);
-		myAccountPage = createAccountPage.returnMyAccountPage();
+		createAccountPage.createAccountClick();
 		createAccountPage.asserCreateAccountMissingValues(missingLoggingValue);
 		logger.info("Finishing negative create account test...");
 	}

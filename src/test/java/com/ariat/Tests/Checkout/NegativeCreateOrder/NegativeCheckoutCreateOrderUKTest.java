@@ -7,17 +7,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.ariat.Enums.EUCountries;
 import com.ariat.Enums.Environments;
-import com.ariat.Enums.ListOfCreditCards;
 import com.ariat.Pages.Categories.WomenCategories.WomenCategoryPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenAccessories.WomenAccessoriesSubcategories.WomenAccessoriesGlovesPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenAccessoriesPage;
 import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.Main.CheckoutPage;
-import com.ariat.Pages.Main.CheckoutProcessCompletePage;
 import com.ariat.Pages.Main.CheckoutProcessPage;
 import com.ariat.Pages.Main.MyBagPage;
-import com.ariat.Pages.Main.PaymentMethodsCheckoutPage;
 import com.ariat.Pages.Products.GlovesProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
@@ -43,9 +40,8 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 	private GlovesProductPage glovesProductPage;
 	private CheckoutPage checkoutPage;
 	private CheckoutProcessPage checkoutProcessPage;
-	private CheckoutProcessCompletePage checkoutProcessCompletePage;
-	private com.ariat.Pages.Main.MyAccountPage myAccountPage;
-	private PaymentMethodsCheckoutPage paymentMethodsCheckoutPage;
+
+
 
 	public static final String CARD_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
@@ -59,9 +55,6 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
 	public static final String EMAILEXISTENT = "aila.bogasieru@ariat.com";
 	public static final String PASSWORDEXISTENT = "Parola12345!";
-	private ListOfCreditCards typeCard;
-	private static final String YEAR = "2023";
-	private static final String MONTH = "January";
 	public static final String CARD_NAME1 = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String FIRST_NAME1 = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String LAST_NAME1 = GenerateRandomDataUtils.generateRandomString(7);

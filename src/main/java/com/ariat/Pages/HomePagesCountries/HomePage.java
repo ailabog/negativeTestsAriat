@@ -32,12 +32,11 @@ public class HomePage extends BasePage implements List<HomePage> {
 	private By closeLocationx = By.xpath("//*[@id=\"ext-gen44\"]/body/div[6]/div[1]/a/span");
 	private By ariatLogo = By.className("global-nav-logo-svg");
 	private By saveAndContinueLocationButton = By.id("btnSaveContext");
-	//private By chooseLocationArrow = By.xpath("//*[@id=\"chooserTriggerHeader\"]/span/span");
 	private By chooseLocationArrow = By.xpath("//span[@class='icon icon-full-arrow-down ms_desktop-only']");
 	
 	private By listCountries = By.xpath("//*[@id=\"contextChooser\"]/ul[1]");
 	private By countrySelectorWindow = By.xpath("//span[@class='icon icon-full-arrow-down ms_desktop-only']");
-	private By continueShoppingButton = By.xpath("//*[@id=\"button\"]/button");
+
 
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -170,7 +169,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageFI(driver);
 
-		
 		// TO DO ADD THE REST OF THE COUNTRIES FROM THE ENUM
 		default:
 			throw new RuntimeException("Country" + country + "not supported");
@@ -229,7 +227,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
 			}
 			return new HomePageBE(driver);
-
 	
 		case "(Ireland)":
 			logger.info("I choose English Ireland as location");
@@ -290,7 +287,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 			}
 			return new HomePageDE(driver);
 
-
 		case "(Finland)":
 			logger.info("I choose English  Finland as location");
 			WebDriverUtils.clickOnElementWithWait(driver, chooseLocationArrow);
@@ -306,7 +302,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 
 			}
 			return new HomePageFI(driver);
-
 
 		case "(Netherlands)":
 			logger.info("I choose English Netherlands as location");
@@ -337,7 +332,6 @@ public class HomePage extends BasePage implements List<HomePage> {
 				WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
 			}
 			return new HomePageLU(driver);
-
 
 		case "(Sweden)":
 			logger.info("I choose English  Sweden as location");

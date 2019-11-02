@@ -15,10 +15,8 @@ import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageSE;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.Main.CheckoutPage;
-import com.ariat.Pages.Main.CheckoutProcessCompletePage;
 import com.ariat.Pages.Main.CheckoutProcessPage;
 import com.ariat.Pages.Main.MyBagPage;
-import com.ariat.Pages.Main.PaymentMethodsCheckoutPage;
 import com.ariat.Pages.Products.GlovesProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
@@ -59,7 +57,6 @@ public class NegativeCheckoutCreateOrderSETest extends BaseTest {
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
 	public static final String EMAILEXISTENT = "aila.bogasieru@ariat.com";
 	public static final String PASSWORDEXISTENT = "Parola12345!";
-	private ListOfCreditCards typeCard;
 	public static final String CARD_NAME_OK = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String FIRST_NAME_OK = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String LAST_NAME_OK = GenerateRandomDataUtils.generateRandomString(7);

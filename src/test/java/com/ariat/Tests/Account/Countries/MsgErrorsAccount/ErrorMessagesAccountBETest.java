@@ -112,6 +112,7 @@ public class ErrorMessagesAccountBETest extends BaseTest {
 		logger.info("Starting returning customer test...");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
+		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageBE = (HomePageBE) homePage.chooseEULocation(euCountry.BE, euCountry.BE.getCurrencyISO());
 		signInPage = homePageBE.returnSignInPage();
 		signInPage.returningCustomer(OK_EMAIL, "EnglishUK");

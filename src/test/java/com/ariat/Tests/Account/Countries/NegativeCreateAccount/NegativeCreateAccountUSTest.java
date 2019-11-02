@@ -11,7 +11,6 @@ import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.HomePagesCountries.HomePageUS;
 import com.ariat.Pages.Main.CreateAccountPage;
-import com.ariat.Pages.Main.MyAccountPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Utils.GenerateRandomDataUtils;
@@ -36,7 +35,6 @@ public class NegativeCreateAccountUSTest extends BaseTest {
 	private HomePageUS homePageUS;
 	private HomePageUK homePageUK;
 	private SignInPage signInPage;
-	private MyAccountPage myAccountPage;
 	private String loggingMessage = "The email address is invalid.";
 	private String missingLoggingValue = "This field is required.";
 

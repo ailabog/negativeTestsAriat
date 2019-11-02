@@ -47,7 +47,6 @@ public class NegativeCheckoutCreateOrderFRTest extends BaseTest {
 	private CheckoutProcessPage checkoutProcessPage;
 	private CheckoutProcessCompletePage checkoutProcessCompletePage;
 	private com.ariat.Pages.Main.MyAccountPage myAccountPage;
-	private PaymentMethodsCheckoutPage paymentMethodsCheckoutPage;
 
 	public static final String CARD_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String FIRST_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
@@ -61,9 +60,6 @@ public class NegativeCheckoutCreateOrderFRTest extends BaseTest {
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
 	public static final String EMAILEXISTENT = "aila.bogasieru@ariat.com";
 	public static final String PASSWORDEXISTENT = "Parola12345!";
-	private ListOfCreditCards typeCard;
-	private static final String YEAR = "2023";
-	private static final String MONTH = "January";
 	public static final String CARD_NAME1 = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String FIRST_NAME1 = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String LAST_NAME1 = GenerateRandomDataUtils.generateRandomString(7);

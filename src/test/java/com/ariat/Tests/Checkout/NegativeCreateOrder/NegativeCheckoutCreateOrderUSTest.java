@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.ariat.Enums.EUCountries;
 import com.ariat.Enums.Environments;
-import com.ariat.Enums.ListOfCreditCards;
 import com.ariat.Pages.Categories.WomenCategories.WomenCategoryPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenAccessories.WomenAccessoriesSubcategories.WomenAccessoriesGlovesPage;
 import com.ariat.Pages.Categories.WomenCategories.WomenSubcategories.WomenAccessoriesPage;
@@ -15,11 +14,9 @@ import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.HomePagesCountries.HomePageUS;
 import com.ariat.Pages.Main.CheckoutPage;
-import com.ariat.Pages.Main.CheckoutProcessCompletePage;
 import com.ariat.Pages.Main.CheckoutProcessPage;
 import com.ariat.Pages.Main.MyBagPage;
-import com.ariat.Pages.Main.PaymentMethodsCheckoutPage;
-import com.ariat.Pages.Products.GlovesProductPage;
+import com.ariat.Pages.Products.BagsProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
 import com.ariat.Utils.KillChrome;
@@ -42,11 +39,10 @@ public class NegativeCheckoutCreateOrderUSTest extends BaseTest {
 	private MyBagPage myBagPage;
 	private WomenAccessoriesPage womenAccessoriesPage;
 	private WomenAccessoriesGlovesPage womenAccessoriesGlovesPage;
-	private GlovesProductPage glovesProductPage;
+	private BagsProductPage bagsProductPage;
 	private CheckoutPage checkoutPage;
 	private CheckoutProcessPage checkoutProcessPage;
-	private CheckoutProcessCompletePage checkoutProcessCompletePage;
-	private PaymentMethodsCheckoutPage paymentMethodsCheckoutPage;
+
 
 	public static final String CARD_NAME = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String FIRST_NAME_NOK = GenerateRandomDataUtils.generateRandomNumber(5);
@@ -59,7 +55,6 @@ public class NegativeCheckoutCreateOrderUSTest extends BaseTest {
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
 	public static final String EMAILEXISTENT = "aila.bogasieru@ariat.com";
 	public static final String PASSWORDEXISTENT = "Parola12345!";
-	private ListOfCreditCards typeCard;
 
 	public static final String CARD_NAME_OK = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String FIRST_NAME_OK = GenerateRandomDataUtils.generateRandomString(5);
@@ -92,12 +87,8 @@ public class NegativeCheckoutCreateOrderUSTest extends BaseTest {
 		homePage.load(environment.DEVELOPMENT.getURL());
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageUS = (HomePageUS) homePage.chooseEULocation(euCountry.USA, euCountry.USA.getCurrencyISO());
-		womenCategoryPage = homePageUS.returnWomenCategoryPage();
-		womenAccessoriesPage = womenCategoryPage.returnWomenAccessoriesCategoryLeftNavPage();
-		womenAccessoriesGlovesPage = womenAccessoriesPage.returnWomenAccessoriesGlovesCategoryleftNavPage();
-		glovesProductPage = womenAccessoriesGlovesPage.returnGlovesProductPagePage();
-		glovesProductPage.selectAttributeSize("7");
-		myBagPage = glovesProductPage.returnMyBagPage();
+		bagsProductPage = homePageUS.returnBagsProductPage();
+		myBagPage = bagsProductPage.returnMyBagPage();
 		checkoutPage = myBagPage.returnCheckoutPage();
 		checkoutProcessPage = checkoutPage.returnCheckoutProcessPage();
 		checkoutProcessPage.enterFName(FIRST_NAME_NOK);
@@ -126,7 +117,7 @@ public class NegativeCheckoutCreateOrderUSTest extends BaseTest {
 		womenCategoryPage.quit();
 		womenAccessoriesPage.quit();
 		womenAccessoriesGlovesPage.quit();
-		glovesProductPage.quit();
+		bagsProductPage.quit();
 		myBagPage.quit();
 		checkoutPage.quit();
 		checkoutProcessPage.quit();
