@@ -7,37 +7,37 @@
                  <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountUKTest" />
 			     <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountUKTest" />
 			     <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardUKTest" />
-			     <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderUKTest" />
+			 
                  <class name="com.ariat.Tests.Base.KillChromeTests" />
                  
                  <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountUSTest" />
 			     <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountUSTest" />
 			     <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardUSTest" />
-			     <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderUSTest" />
+			   
                  <class name="com.ariat.Tests.Base.KillChromeTests" />
                  
                  <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountDETest" />
 			     <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountDETest" />
 			     <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardDETest" />
-			     <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderDETest" />
+			   
                  <class name="com.ariat.Tests.Base.KillChromeTests" />
                  
                  <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountFRTest" />
 			     <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountFRTest" />
 			     <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardFRTest" />
-			     <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderFRTest" />
+			  
                  <class name="com.ariat.Tests.Base.KillChromeTests" />
                  
                  <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountBETest" />
 			     <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountBETest" />
 			     <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardBETest" />
-			     <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderBETest" />
+			 
                  <class name="com.ariat.Tests.Base.KillChromeTests" />
           
                  <class name="com.ariat.Tests.Account.Countries.MsgErrorsAccount.ErrorMessagesAccountSETest" />
 			     <class name="com.ariat.Tests.Account.Countries.NegativeCreateAccount.NegativeCreateAccountSETest" />
 			     <class name="com.ariat.Tests.CreditCard.Countries.NegativeCreditCard.NegativeAddCreditCardSETest" />
-			     <class name="com.ariat.Tests.Checkout.NegativeCreateOrder.NegativeCheckoutCreateOrderSETest" />
+			  
                  <class name="com.ariat.Tests.Base.KillChromeTests" />
       
           

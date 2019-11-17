@@ -40,6 +40,7 @@ public class WomenAccessoriesPage extends BasePage{
 	
 		
 	public WomenAccessoriesHeadwearPage returnWomenAccessoriesHeadwearCategoryPage() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, womenAccessoriesHeadwearCategory);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(womenAccessoriesHeadwearText));
@@ -47,6 +48,7 @@ public class WomenAccessoriesPage extends BasePage{
 	}
 	
 	public WomenAccessoriesGlovesPage returnWomenAccessoriesGlovesCategoryPage() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, womenAccessoriesGlovesCategory);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 		ExpectedConditions.invisibilityOfElementLocated(womenAccessoriesGlovesText));
@@ -54,6 +56,7 @@ public class WomenAccessoriesPage extends BasePage{
 	}
 	
 	public WomenAccessoriesGlovesPage returnWomenAccessoriesGlovesCategoryleftNavPage() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, womenAccessoriesGlovesLeftNav);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(womenAccessoriesGlovesText));

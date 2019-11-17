@@ -23,7 +23,6 @@ public class MyAccountWishListPage extends BasePage {
 
 	public static final Logger logger = LoggerFactory.getLogger(MyAccountWishListPage.class);
 
-	private By addressEmailTextBox = By.xpath("//input[@placeholder='Email address']");
 	private By passwordTextBox = By.id("dwfrm_login_password");
 	private By loginButton = By.name("dwfrm_login_login");
 	private By createAccountNowButton = By.name("dwfrm_login_register");
@@ -80,31 +79,37 @@ public class MyAccountWishListPage extends BasePage {
 
 	public void loginClick() {
 		logger.info("Logging into your account...");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, loginButton);
 	
 	}
 	
 	public void createAccountNowClick() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, createAccountNowButton);
 	
 	}
 	
 	public void findWishListFName(String Fname) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, findFirstNameWishList, Fname);
 	
 	}
 	
 	public void findWishListLName(String Lname) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, findLastNameWishList, Lname);
 
 	}
 	
 	public void findWishListEmail(String email) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, findEmailWishList, email);
 	
 	}
 	
 	public void findWishListClick() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, findWishListButton);
 	
 		

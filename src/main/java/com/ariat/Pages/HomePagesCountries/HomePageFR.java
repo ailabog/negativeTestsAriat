@@ -37,8 +37,7 @@ public class HomePageFR extends BasePage implements List<HomePage> {
     private By womenAccessoriesText = By.xpath("//*[@id=\"main\"]/div/div[1]/aside/div[2]/span[1]");
     private By accessoriesCategory = By.xpath("//a[text()=' Accessories']");
     private By accessoriesCategoryFR = By.xpath("//a[text()=' Accessoires']");
-    private By topsAndTshirtsCategoryFR = By.xpath("//a[text()='Hauts & T-shirts']");
-    private By topsAndTshirtsText = By.xpath("//*[@id=\"main\"]/div/div[2]/div[2]/div[1]/span[1]");
+   
    
 	
 	public HomePageFR(WebDriver driver) {
@@ -47,9 +46,10 @@ public class HomePageFR extends BasePage implements List<HomePage> {
 	
 	public void search(String option) {
 		logger.info("Searching for a product...");
-		WebDriverUtils.clickOnElementWithWait(driver, search);
-		WebDriverUtils.enterTextBox(driver, searchTextBox, option);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, search);
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.enterTextBox(driver, searchTextBox, option);
 	}
 
 	public void assertProductDisplayed(String expectedText) {
@@ -59,14 +59,14 @@ public class HomePageFR extends BasePage implements List<HomePage> {
 
 	public void seeAllproducts() {
 		logger.info("Display all the products...");
-		WebDriverUtils.clickOnElementWithWait(driver, seeAllproductsLink);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	}
+		WebDriverUtils.clickOnElementWithWait(driver, seeAllproductsLink);
+  }
 
 	public void closeSearch() {
 		logger.info("Close serach products...");
-		WebDriverUtils.clickOnElementWithWait(driver, closeSearch);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, closeSearch);
 	}
 	
 	public SignInPage returnSignInPage() {

@@ -1,7 +1,6 @@
 package com.ariat.Tests.CreditCard.Countries.NegativeCreditCard;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -45,13 +44,10 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 	private static final String CARD_OWNER = "5654657665";
 	private static final String YEAR = "2023";
 	private static final String MONTH = "January";
-
 	private static final String YEAR1 = "2009";
 	private static final String MONTH1 = "January";
-
 	private static final String CARD_IDWILD = "#$%^&*(";
 	private static final String CARD_OWNERWILD = "@#$%^&*(";
-
 	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
 	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
 	
@@ -160,11 +156,6 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageSE.quit();
@@ -172,5 +163,6 @@ public class NegativeAddCreditCardSETest extends BaseTest {
 		addACreditCardPage.quit();
 		paymentInfoPage.quit();
 		myAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

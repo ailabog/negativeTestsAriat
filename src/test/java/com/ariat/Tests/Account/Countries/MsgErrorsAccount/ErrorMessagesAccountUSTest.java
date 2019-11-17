@@ -1,7 +1,6 @@
 package com.ariat.Tests.Account.Countries.MsgErrorsAccount;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -38,19 +37,14 @@ public class ErrorMessagesAccountUSTest extends BaseTest {
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String BIRTH_MONTH = "March";
 	public static final String BIRTH_DAY = "02";
-
 	public static final String EMAIL = GenerateRandomDataUtils.generateRandomAlphaNumeric(7);
-	
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomNumber(3);
-
 	public static final String ORDER_NO = GenerateRandomDataUtils.generateRandomAlphaNumeric(4);
 	public static final String BILLING_ZIP_CODE = GenerateRandomDataUtils.generateRandomString(3);
-
 	public static final String ERROR_MESSAGE = "Sorry this order number, email or postal code does not match our records. Check your records and try again.";
 	public static final String INVALID_EMAIL_MSG = "The email address is invalid.";
 	public static final String INVALID_PASS_MSG = "(8 - 255 characters)";
 	public static final String MISMATCH_PASS_MSG = "Sorry, this does not match our records. Check your spelling and try again.";
-	
 	public static final String WRONG_EMAIL = "aaaa@yahoo.com";
 	public static final String OK_EMAIL = "aila.bogasieru@yahoo.com";
 	public static final String WRONG_PASSWORD = "Password";
@@ -94,20 +88,6 @@ public class ErrorMessagesAccountUSTest extends BaseTest {
 	}
 
 	@Test(priority = 2)
-	public void checkInvalidOrderTest() {
-		logger.info("Starting checking invalid order test...");
-		homePage = new HomePage(new ChromeDriver());
-		homePage.load(environment.DEVELOPMENT.getURL());
-		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
-		homePageUS = (HomePageUS) homePage.chooseEULocation(euCountry.USA, euCountry.USA.getCurrencyISO());
-		signInPage = homePageUS.returnSignInPage();
-		signInPage.checkOrder(ORDER_NO, OK_EMAIL, BILLING_ZIP_CODE);
-		signInPage.checkStatusClick();
-		signInPage.assertErrorMessageInexistingOrderNo(ERROR_MESSAGE);
-		logger.info("Finishing checking invalid order test...");
-	}
-	
-	@Test(priority = 3)
 	public void returningCustomerTest() {
 		logger.info("Starting returning customer test...");
 		homePage = new HomePage(new ChromeDriver());
@@ -123,15 +103,11 @@ public class ErrorMessagesAccountUSTest extends BaseTest {
 		}
 	
 	@AfterTest
-	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-	
-	@AfterSuite
 	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageUS.quit();
 		signInPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

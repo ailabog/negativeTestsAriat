@@ -19,23 +19,17 @@ import com.ariat.Utils.WebDriverUtils;
 public class CasualShoeProductPage extends BasePage {
 
 	private By addToBasket = By.cssSelector("#add-to-cart");
-	private By myBagText = By.xpath("*[contains[text(), 'My Bag']");
 	private By wishList = By.cssSelector(".add-to-wishlist");
 	private By bonusDialog = By.id("bonus-choose-container product-content");
-
 	private By myWishListText = By.xpath("//*contains[text(), 'Wish list']");
-
 	private By myAccountText = By.xpath("//*contains[text()='My account']");
 	private By myWishlistText = By.xpath("//*contains[text()='Wishlist']");
-
 	private By selectSize = By.id("va-size");
 	private By selectCalf = By.id("va-calf");
 	private By selectHeight = By.id("va-height");
 	private By increaseQty = By.xpath("//span[text()='+']");
-	// increase qty //css=.quantity-increase
 	private By decreaseQty = By.xpath("//span[text()='-']");
 	private By writeReview = By.xpath("//*[@id=\"BVRRSummaryContainer\"]/div/div/div/div/div/div/div");
-	// private By writeReview = By.cssSelector(".bv-write-review");
 	private By reviewDialog = By.id("bv-mbox-lightbox-list");
 	private By starReviewExcellent = By.xpath("//a[@id='bv-radio-rating-5']/span");
 	private By starReviewGood = By.xpath("//a[@id='bv-radio-rating-4']/span");
@@ -68,22 +62,26 @@ public class CasualShoeProductPage extends BasePage {
 		WebDriverUtils.selectVisibleText(driver, selectSize, size);
 	}
 
-	public void selectAttributeCalf(String calf) {
+	public void selectAttributeCalf(String calf) {	
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.selectVisibleText(driver, selectCalf, calf);
 	}
 
 	public void selectAttributeHeight(String height) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.selectVisibleText(driver, selectHeight, height);
 	}
 
 	public void setQtyIncrease(int n) {
 		for (int i = 0; i <= n; i++) {
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 			WebDriverUtils.clickOnElementWithWait(driver, increaseQty);
 		}
 	}
 
 	public void setQtyDecrease(int n) {
 		for (int i = 0; i <= n; i++) {
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 			WebDriverUtils.clickOnElementWithWait(driver, decreaseQty);
 	
 		}
@@ -179,11 +177,13 @@ public class CasualShoeProductPage extends BasePage {
 	}
 
 	public void addToCart() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, addToBasket);
 	
 	}
 
 	public void update() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, updateButton);
 	
 	}

@@ -1,7 +1,6 @@
 package com.ariat.Tests.Account.Countries.NegativeCreateAccount;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -120,15 +119,11 @@ public class NegativeCreateAccountSETest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageSE.quit();
 		signInPage.quit();
 		createAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

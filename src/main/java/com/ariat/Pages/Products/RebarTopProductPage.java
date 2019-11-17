@@ -19,21 +19,15 @@ import com.ariat.Utils.WebDriverUtils;
 public class RebarTopProductPage extends BasePage {
 
 	private By addToBasket = By.cssSelector("#add-to-cart");
-	private By myBagText = By.xpath("*[contains[text(), 'My Bag']");
 	private By wishList = By.cssSelector(".add-to-wishlist");
 	private By bonusDialog = By.id("bonus-choose-container product-content");
-
 	private By myWishListText = By.xpath("//*contains[text(), 'Wish list']");
-
 	private By myAccountText = By.xpath("//*contains[text()='My account']");
 	private By myWishlistText = By.xpath("//*contains[text()='Wishlist']");
-
 	private By selectSize = By.id("va-size");
 	private By selectCalf = By.id("va-calf");
 	private By selectHeight = By.id("va-height");
 	private By increaseQty = By.xpath("//span[text()='+']");
-	// increase qty //css=.quantity-increase
-
 	private By decreaseQty = By.xpath("//span[text()='-']");
 	private By writeReview = By.xpath("//*[@id=\"BVRRSummaryContainer\"]/div/div/div/div/div/div/div");
 	private By reviewDialog = By.id("bv-mbox-lightbox-list");
@@ -65,22 +59,26 @@ public class RebarTopProductPage extends BasePage {
 	}
 
 	public void selectAttributeSize(String size) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.selectVisibleText(driver, selectSize, size);
 	
 	}
 
 	public void selectAttributeCalf(String calf) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.selectVisibleText(driver, selectCalf, calf);
 	
 	}
 
 	public void selectAttributeHeight(String height) {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.selectVisibleText(driver, selectHeight, height);
 	
 	}
 
 	public void setQtyIncrease(int n) {
 		for (int i = 0; i <= n; i++) {
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 			WebDriverUtils.clickOnElementWithWait(driver, increaseQty);
 
 		}
@@ -88,12 +86,14 @@ public class RebarTopProductPage extends BasePage {
 
 	public void setQtyDecrease(int n) {
 		for (int i = 0; i <= n; i++) {
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 			WebDriverUtils.clickOnElementWithWait(driver, decreaseQty);
 	
 		}
 	}
 
 	public void writeReviewClick() {
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, writeReview);
 
 	}

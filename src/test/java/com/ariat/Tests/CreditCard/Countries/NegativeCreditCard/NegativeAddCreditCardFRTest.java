@@ -44,14 +44,10 @@ public class NegativeAddCreditCardFRTest extends BaseTest{
 	private static final String CARD_OWNER = "5654657665";
 	private static final String YEAR = "2023";
 	private static final String MONTH = "Janvier";
-
-
 	private static final String YEAR1 = "2009";
 	private static final String MONTH1 = "Janvier";
-
 	private static final String CARD_IDWILD = "#$%^&*(";
 	private static final String CARD_OWNERWILD = "@#$%^&*(";
-
 	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
 	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
 	
@@ -164,11 +160,6 @@ public class NegativeAddCreditCardFRTest extends BaseTest{
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageFR.quit();
@@ -176,5 +167,6 @@ public class NegativeAddCreditCardFRTest extends BaseTest{
 		addACreditCardPage.quit();
 		paymentInfoPage.quit();
 		myAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

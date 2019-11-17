@@ -40,7 +40,6 @@ public class CreateAccountPage extends BasePage {
 	private By checkEnglish = By.xpath("//*[@id=\"RegistrationForm\"]/div[12]/div[2]/div[1]/span");
 	private By checkOutdoor = By.xpath("//*[@id=\"RegistrationForm\"]/div[12]/div[2]/div[2]/span");
 	private By checkAddToEmailList = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[10]/div/span");
-	//private By createAccountButton = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[12]/div/button");
 	private By createAccountButton=By.name("dwfrm_profile_confirm");
 	private By myAccountTitle = By.className("/account-overview__title ms-font--proxima_nova_semibold");
 	private By emailMsgDE = By.xpath("//span[contains(text(),'Die E-Mail-Adresse ist ungültig.')]");
@@ -48,8 +47,6 @@ public class CreateAccountPage extends BasePage {
 	private By invalidConfirmEmailMessage = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[7]/div/span");
 	private By invalidPassMessage = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[8]/div/span");
 	private By invalidConfirmMessage = By.xpath("//*[@id=\"RegistrationForm\"]/div/div[9]/div/span");
-
-	private By wishList = By.cssSelector(".add-to-wishlist");
 	private By myAccountText = By.xpath("//*contains[text()='My account']");
 	private By myWishlistText = By.xpath("//*contains[text()='Wishlist']");
 	private By emailMsgTxt = By.xpath("//span[text()='The email address is invalid.']");
@@ -69,12 +66,14 @@ public class CreateAccountPage extends BasePage {
 
 	public void firstName(String firstName) {
 		logger.info("Start collecting information to create a new account: First Name");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, firstNameTextBox, firstName);
 		
 	}
 
 	public void clearFirstName() {
 		logger.info("Clearing text box First Name:");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clearElement(driver, firstNameTextBox);
 		
 	}
@@ -120,6 +119,7 @@ public class CreateAccountPage extends BasePage {
 
 	public void confirmEmail(String email) {
 		logger.info("Start collecting information to create a new account: confirm email");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, confirmEmailTextBox, email);
 	
 	}
@@ -144,8 +144,6 @@ public class CreateAccountPage extends BasePage {
 		assertEquals(nameMessage, emailMsgTxtValue, "Invalid name message is displayed");
 	}
 	
-	
-	
 	public void assertWrongEmailCreateAccountDE(String emailMsgExpected) {
 		String emailMessage = WebDriverUtils.getElementText(driver, emailMsgDE);
 		assertEquals(emailMessage, emailMsgExpected, "Invalid email message is displayed");
@@ -167,14 +165,12 @@ public class CreateAccountPage extends BasePage {
 	public void enterPassword(String password) {
 		logger.info("Start collecting information to create a new account: enter passsword");
 		WebDriverUtils.enterTextBox(driver, passwordTextBox, password);
-		
 	}
 
 	public void confirmPassword(String password) {
 		logger.info("Start collecting information to create a new account: confirm email");
 		WebDriverUtils.enterTextBox(driver, confirmPasswordTextBox, password);
 		logger.info("Finalize collecting information to create a new account");
-
 	}
 
 	public void GenderFemale() {
@@ -187,7 +183,6 @@ public class CreateAccountPage extends BasePage {
 		logger.info("Choosing Male option:");
 		WebDriverUtils.clickOnElementWithWait(driver, MaleRadio);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
-	
 	}
 
 	public void rideYes() {

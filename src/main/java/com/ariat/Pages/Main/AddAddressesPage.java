@@ -42,7 +42,6 @@ public class AddAddressesPage extends BasePage {
 	private By addressesTextFR = By.xpath("//*contains[text(), 'Addresses']");
  	private By deleteAddressButton = By.name("dwfrm_profile_address_remove");
 	private By deleteAddressButtonDE = By.name("dwfrm_profile_address_remove");
-
 	private By addressesTextDE = By.xpath("//*contains[text(), 'Adressen']");
     private By stateBox = By.id("dwfrm_profile_address_states_state");
     private By missingFieldsText=By.xpath("//*contains[text(),'This field is required.']");
@@ -54,107 +53,93 @@ public class AddAddressesPage extends BasePage {
 
 	public void enterFName(String name) {
 		logger.info("Entering first name for Address :?");
-		WebDriverUtils.enterTextBox(driver, fNameTtextBox, name);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	
+		WebDriverUtils.enterTextBox(driver, fNameTtextBox, name);
 	}
 
 	public void enterLName(String last) {
 		logger.info("Entering last name for Address :?");
-		WebDriverUtils.enterTextBox(driver, lNameTextBox, last);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	
+		WebDriverUtils.enterTextBox(driver, lNameTextBox, last);
 	}
 
 	public void enterAddress1(String address1) {
 		logger.info("Entering address1: ");
-		WebDriverUtils.enterTextBox(driver, address1TextBox, address1);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	
+		WebDriverUtils.enterTextBox(driver, address1TextBox, address1);
 	}
 
 	public void enterAddress2(String address2) {
 		logger.info("Entering address2: ");
-		WebDriverUtils.enterTextBox(driver, address2TextBox, address2);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	
+		WebDriverUtils.enterTextBox(driver, address2TextBox, address2);
 	}
 
 	public void enterCity(String city) {
 		logger.info("Entering city: ");
-		WebDriverUtils.enterTextBox(driver, cityTextBox, city);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	
+		WebDriverUtils.enterTextBox(driver, cityTextBox, city);
 	}
 
 	public void selectCountry(String country) {
 		logger.info("Selecting country: ");
-		WebDriverUtils.selectDropDown(driver, countryTextBox, country);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	
+		WebDriverUtils.selectDropDown(driver, countryTextBox, country);
 	}
 	
 	public void selectState(String state) {
 		logger.info("Selecting state: ");
-		WebDriverUtils.selectDropDown(driver, stateBox, state);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
+		WebDriverUtils.selectDropDown(driver, stateBox, state);
 	}
 
 	public void enterPostCode(String zip) {
 		logger.info("Entering poste code: ");
-		WebDriverUtils.enterTextBox(driver, postCodeTextBox, zip);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
+		WebDriverUtils.enterTextBox(driver, postCodeTextBox, zip);
 	}
 
 	public void enterPhone(String phone) {
 		logger.info("Entering phone: ");
-		WebDriverUtils.enterTextBox(driver, phoneTextBox, phone);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
+		WebDriverUtils.enterTextBox(driver, phoneTextBox, phone);
 	}
 
 	public void enterAddressId(String addressId) {
 		logger.info("Entering poste code: ");
-		WebDriverUtils.enterTextBox(driver, addressIdTextBox, addressId);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
+		WebDriverUtils.enterTextBox(driver, addressIdTextBox, addressId);
 	}
 
 	public void clearAddressId() {
 		logger.info("Clearing text box Address Id:");
-		WebDriverUtils.clearElement(driver, addressIdTextBox);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
-	}
+		WebDriverUtils.clearElement(driver, addressIdTextBox);
+  }
 
 	public void saveAddress() {
 		logger.info("Saving this address: ");
 		WebDriverUtils.scroll500Down(driver, saveAddressButton);
-		WebDriverUtils.clickOnElementWithWait(driver, saveAddressButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-		
+		WebDriverUtils.clickOnElementWithWait(driver, saveAddressButton);
 	}
 
 	public void saveAddressEdit() {
 		logger.info("Saving this address: ");
-		WebDriverUtils.clickOnElementWithWait(driver, saveAddressEditButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, saveAddressEditButton);
 	}
 
 	public void editAddress() {
 		logger.info("Editing this address: ");
-		WebDriverUtils.clickOnElementWithWait(driver, editAddressButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
+		WebDriverUtils.clickOnElementWithWait(driver, editAddressButton);
 	}
 
 	public void cancelAddress() {
 		logger.info("Canceling this address to be created: ");
-		WebDriverUtils.clickOnElementWithWait(driver, cancelAddressButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		
+		WebDriverUtils.clickOnElementWithWait(driver, cancelAddressButton);
 	}
 	
 	public void assertMissingValueAddress(String msgExpected) {
@@ -164,25 +149,22 @@ public class AddAddressesPage extends BasePage {
 
 	public void deleteAddress() {
 		logger.info("Deleteing this address ");
-		WebDriverUtils.clickOnElementWithWait(driver, deleteAddressButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-		
+		WebDriverUtils.clickOnElementWithWait(driver, deleteAddressButton);
 	}
 	
 	public void saveAddressDE() {
 		logger.info("Saving this address: ");
 		WebDriverUtils.scroll500Down(driver, saveAddressButtonDE);
-		WebDriverUtils.clickOnElementWithWait(driver, saveAddressButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-		
+		WebDriverUtils.clickOnElementWithWait(driver, saveAddressButton);
 	}
 	
 	public void saveAddressFR() {
 		logger.info("Saving this address: ");
 		WebDriverUtils.scroll500Down(driver, saveAddressButtonFR);
-		WebDriverUtils.clickOnElementWithWait(driver, saveAddressButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_6000_SECONDS);
-		
+		WebDriverUtils.clickOnElementWithWait(driver, saveAddressButton);
 	}
 
 

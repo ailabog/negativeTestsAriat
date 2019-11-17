@@ -21,7 +21,7 @@ import com.ariat.Utils.WebDriverUtils;
 public class GlovesProductPage extends BasePage{
 	
 
-	private By myBagText = By.xpath("*[contains[text(), 'My Bag']");
+	
 	private By wishList = By.xpath("//button[@class='add-to-wishlist in-stock-element wl-action product__button product__button--pdp ']");
 	private By myWishListText = By.xpath("//*contains[text(), 'Wish list']");
 	private By myAccountText = By.xpath("//*contains[text()='My account']");
@@ -29,8 +29,6 @@ public class GlovesProductPage extends BasePage{
 	private By selectCalf = By.id("va-calf");
 	private By selectHeight = By.id("va-height");
 	private By increaseQty = By.xpath("//span[text()='+']");
-	// increase qty //css=.quantity-increase
-
 	private By decreaseQty = By.xpath("//span[text()='-']");
 	private By writeReview = By.xpath("//*[@id=\"BVRRSummaryContainer\"]/div/div/div/div/div/div/div");
 	private By reviewDialog = By.id("bv-mbox-lightbox-list");

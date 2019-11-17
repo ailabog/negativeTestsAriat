@@ -43,9 +43,9 @@ public class HomePageSE extends BasePage implements List<HomePage> {
 	
 	public void search(String option) {
 		logger.info("Searching for a product...");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, search);
 		WebDriverUtils.enterTextBox(driver, searchTextBox, option);
-		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 	}
 
 	public void assertProductDisplayed(String expectedText) {

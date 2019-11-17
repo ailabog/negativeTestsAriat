@@ -159,11 +159,6 @@ public class NegativeAddCreditCardBETest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageBE.quit();
@@ -171,5 +166,6 @@ public class NegativeAddCreditCardBETest extends BaseTest {
 		addACreditCardPage.quit();
 		paymentInfoPage.quit();
 		myAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

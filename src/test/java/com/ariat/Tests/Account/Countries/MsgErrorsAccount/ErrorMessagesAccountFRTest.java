@@ -39,19 +39,14 @@ public class ErrorMessagesAccountFRTest extends BaseTest {
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String BIRTH_MONTH = "Mars";
 	public static final String BIRTH_DAY = "02";
-
 	public static final String EMAIL = GenerateRandomDataUtils.generateRandomAlphaNumeric(7);
-	
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomNumber(3);
-
 	public static final String ORDER_NO = GenerateRandomDataUtils.generateRandomAlphaNumeric(4);
 	public static final String BILLING_ZIP_CODE = GenerateRandomDataUtils.generateRandomString(3);
-
 	public static final String ERROR_MESSAGE = "Désolé, ce numéro de commande ou code postal ne correspond pas à celui que nous avons dans nos dossiers. Vérifiez-le puis réessayez.";
 	public static final String INVALID_EMAIL_MSG = "L'adresse courriel n'est pas valide.";
 	public static final String INVALID_PASS_MSG = "(8 - 255 characters)";
 	public static final String MISMATCH_PASS_MSG = "Désolé, ceci ne correspond pas aux infos que nous avons dans nos dossiers. Vérifiez l'orthographe puis réessayez.";
-	
 	public static final String WRONG_EMAIL = "aaaa@yahoo.com";
 	public static final String OK_EMAIL = "aila.bogasieru@ariat.com";
 	public static final String WRONG_PASSWORD = "Password";
@@ -95,21 +90,8 @@ public class ErrorMessagesAccountFRTest extends BaseTest {
 		logger.info("Finishing returning customer wrong email test...");
 	}
 
-	@Test(priority = 2)
-	public void checkInvalidOrderTest() {
-		logger.info("Starting checking invalid order test...");
-		homePage = new HomePage(new ChromeDriver());
-		homePage.load(environment.DEVELOPMENT.getURL());
-		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
-		homePageFR = (HomePageFR) homePage.chooseEULocation(euCountry.FR, euCountry.FR.getCurrencyISO());
-		signInPage = homePageFR.returnSignInPage();
-		signInPage.checkOrder(ORDER_NO, OK_EMAIL, BILLING_ZIP_CODE);
-		signInPage.checkStatusClick();
-		signInPage.assertErrorMessageInexistingOrderNo(ERROR_MESSAGE);
-		logger.info("Finishing checking invalid order test...");
-	}
 	
-	@Test(priority = 3)
+	@Test(priority = 2)
 	public void returningCustomerTest() {
 		logger.info("Starting returning customer test...");
 		homePage = new HomePage(new ChromeDriver());
@@ -126,15 +108,11 @@ public class ErrorMessagesAccountFRTest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageFR.quit();
 		signInPage.quit();
 		myAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

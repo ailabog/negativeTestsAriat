@@ -1,7 +1,6 @@
 package com.ariat.Tests.Account.Countries.NegativeCreateAccount;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -42,10 +41,8 @@ public class NegativeCreateAccountUKTest extends BaseTest {
 	public static final String LAST_NAME = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String BIRTH_MONTH = "March";
 	public static final String BIRTH_DAY = "02";
-
 	public static final String EMAIL = GenerateRandomDataUtils.generateRandomNumber(12);
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
-
 	public static final String FIRST_NAME1 = "@#$%^&*()";
 	public static final String LAST_NAME1 = "@#$%^&*()";
 	public static final String EMAIL1 = "@#$%^&*()";
@@ -116,14 +113,10 @@ public class NegativeCreateAccountUKTest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		signInPage.quit();
 		createAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

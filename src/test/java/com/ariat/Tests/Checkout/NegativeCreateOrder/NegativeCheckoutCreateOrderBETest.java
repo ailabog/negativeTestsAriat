@@ -1,8 +1,6 @@
 package com.ariat.Tests.Checkout.NegativeCreateOrder;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.ariat.Enums.EUCountries;
@@ -15,14 +13,12 @@ import com.ariat.Pages.HomePagesCountries.HomePage;
 import com.ariat.Pages.HomePagesCountries.HomePageBE;
 import com.ariat.Pages.HomePagesCountries.HomePageUK;
 import com.ariat.Pages.Main.CheckoutPage;
-import com.ariat.Pages.Main.CheckoutProcessCompletePage;
 import com.ariat.Pages.Main.CheckoutProcessPage;
 import com.ariat.Pages.Main.MyBagPage;
-import com.ariat.Pages.Main.PaymentMethodsCheckoutPage;
 import com.ariat.Pages.Products.GlovesProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
-import com.ariat.Utils.KillChrome;
+
 
 /**
  * Checkout -> Negative Create new order
@@ -111,13 +107,8 @@ public class NegativeCheckoutCreateOrderBETest extends BaseTest {
 	}
 
 	
-	@AfterTest
+	/*@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageBE.quit();
@@ -128,5 +119,6 @@ public class NegativeCheckoutCreateOrderBETest extends BaseTest {
 		myBagPage.quit();
 		checkoutPage.quit();
 		checkoutProcessPage.quit();
-	}
+		KillChrome kill = new KillChrome();
+	}*/
 }

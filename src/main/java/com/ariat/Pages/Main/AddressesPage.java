@@ -23,10 +23,8 @@ public class AddressesPage extends BasePage {
 	private By addressesText = By.xpath("//h1[text()='Addresses']");
 	private By addressTextDE = By.xpath("//h1[text()='Adressen']");
 	private By editLink = By.xpath("//a[@class='address-action address-action--edit']");
-		
 	private By deleteLink = By.xpath("//a[@title='Delete']");
 	private By deleteLinkDE = By.xpath("//a[@title='Löschen']");
-
 	private By deleteLinkFR = By.xpath("//a[@title='Supprimer']");
 	private By makeDefaultLink = By.xpath("//u[text()='Make default']");
 	private By makeDefaultLinkDE = By.xpath("//a[text()='Als Standard festlegen']");
@@ -38,7 +36,6 @@ public class AddressesPage extends BasePage {
 	private By cancelButtonDialogFR = By.xpath("//span[text()='Annuler']");
 	private By deleteButtonDialogFR = By.xpath("//span[text()='Supprimer']");
 	private By deleteButtonDialog = By.xpath("//span[text()='Delete']");
-
 	private By AddAddressButton = By.xpath("//*[@id=\"addresses\"]/div[29]/a");
 	private By addressNickname = By.xpath("//*[@id=\"addresses\"]/div[3]/div[1]/div[1]/h3/span");
 	private By addressNicknameUS = By.xpath("//*[@id=\"addresses\"]/div[1]/div[1]/div[1]/h3/span");
@@ -55,21 +52,16 @@ public class AddressesPage extends BasePage {
 	public void deleteFromEdit() {
 		logger.info("Deleting the address...");
 		WebDriverUtils.clickOnElementWithWait(driver, deleteButton);
-	
-
 	}
 
 	public void clickDeleteYes() {
 		logger.info("Deleting the address...");
 		WebDriverUtils.clickOnElementWithWait(driver, deleteButtonDialog);
-		
-
 	}
 
 	public void clickDeleteNo() {
 		logger.info("Canceling delete the address...");
 		WebDriverUtils.clickOnElementWithWait(driver, cancelButtonDialog);
-	
 	}
 
 	public void makeDefaultAddress() {
@@ -123,7 +115,6 @@ public class AddressesPage extends BasePage {
 
 	public void deleteAddressCreatedNo(String addressValue) {
 		if (WebDriverUtils.findElement(driver, deleteLink) != null) {
-
 			WebDriverUtils.clickOnElementWithWait(driver, deleteLink);
 			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
 			WebDriverUtils.clickOnElementWithWait(driver, cancelButtonDialog);
@@ -284,7 +275,6 @@ public class AddressesPage extends BasePage {
 			logger.info("Make default {}" + addressValue + "was not possible");
 		}
 	}
-
 
 	public void assertMakeDefaultDE(String expectedAddress) {
 		String addressLabel = WebDriverUtils.getElementText(driver, addressNickname);

@@ -21,7 +21,6 @@ public class MyWishListPage extends BasePage {
 	private static final Logger logger = LoggerFactory.getLogger(MyWishListPage.class);
 
 	private By sendToAFriendButton = By.xpath("//a[@title='Send to a Friend']");
-	//private By sendToAFriendButtonDE = By.xpath("//a[@title='An einen Freund schicken']");
 	private By sendToAFriendButtonDE = By.xpath("//a[@title='Meine Wunschliste teilen']");
 	private By sendToAFriendButtonFR = By.xpath("//a[@title='Envoyer à un ami']");
 	private By nameTxtBox = By.id("dwfrm_sendtofriend_friendsname");
@@ -41,10 +40,7 @@ public class MyWishListPage extends BasePage {
 	private By editItemWishList = By.xpath("//*[@id=\"main\"]/div/div[2]/div[2]/div/div[1]/div[3]/div[2]/a[1]");
 	private By addToCartWishList = By.name("dwfrm_wishlist_items_i0_addItemToCart");
 	private By goBackToWishListEdit = By.cssSelector("span.ui-icon.ui-icon-closethick");
-    
     private By noIteminWishListText = By.xpath("//*[contains[text(), 'You have no items on your wishlist.']");
-    private By ItemsTable = By.id("id-b74204a4db5dec790e1f5d43c0");
-	 
     private boolean noItemWishList;
     
     public MyWishListPage(WebDriver driver) {
@@ -53,6 +49,7 @@ public class MyWishListPage extends BasePage {
 
 	public void sendListToAFriend(String nameFrined, String email) {
 		logger.info("Sending my wish list to a friend");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, sendToAFriendButton);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, nameTxtBox, nameFrined);
@@ -105,36 +102,36 @@ public class MyWishListPage extends BasePage {
 
 	public void increaseQtyWishList(int n) {
 		for (int i = 0; i < n; i++) {
-			WebDriverUtils.clickOnElementWithWait(driver, increaseQty);
 			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-		}
+			WebDriverUtils.clickOnElementWithWait(driver, increaseQty);
+	  }
 	}
 
 	public void decreaseQtyWishList(int n) {
 		for (int i = 0; i < n; i++) {
-			WebDriverUtils.clickOnElementWithWait(driver, decreaseQty);
 			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+			WebDriverUtils.clickOnElementWithWait(driver, decreaseQty);
 		}
 	}
 
 	public void setPriorityWishList(String priority) {
-		WebDriverUtils.selectDropDown(driver, prioritySelect, priority);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.selectDropDown(driver, prioritySelect, priority);
 	}
 
 	public void updateItemWishList() {
-		WebDriverUtils.clickOnElementWithWait(driver, updateItemWishList);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_40_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, updateItemWishList);
 	}
 
 	public void removeItemWishList() {
-		WebDriverUtils.clickOnElementWithWait(driver, removeItemWishList);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, removeItemWishList);
 	}
 
 	public void editItemWishList() {
-		WebDriverUtils.clickOnElementWithWait(driver, editItemWishList);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, editItemWishList);
 	}
 	
 	public void goBackFromEditToWishlist() {
@@ -143,8 +140,8 @@ public class MyWishListPage extends BasePage {
 
 	public void addToCartItemWishList() {
 		WebDriverUtils.scrollLittDown(driver, addToCartWishList);
-		WebDriverUtils.clickOnElementWithWait(driver, addToCartWishList);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, addToCartWishList);
 	}
 	
 	public boolean noItemWishList() {

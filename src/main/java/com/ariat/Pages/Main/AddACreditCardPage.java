@@ -1,6 +1,5 @@
 package com.ariat.Pages.Main;
 
-import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +32,7 @@ public class AddACreditCardPage extends BasePage {
 	private By cancelButton = By.xpath("//button[text()='Cancel]");
 	private By creditCardInfoText = By.xpath("//*contains[text(), 'Credit card information']");
 	private By typeCardSelectUS = By.id("c-ct");
-	private By creditMsgTxt = By.xpath("//div[@class='error']");
+	
 
 	public AddACreditCardPage(WebDriver driver) {
 		super(driver);

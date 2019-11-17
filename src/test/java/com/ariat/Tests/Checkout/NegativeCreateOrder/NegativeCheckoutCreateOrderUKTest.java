@@ -107,11 +107,6 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-	
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		womenCategoryPage.quit();
@@ -121,5 +116,6 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 		myBagPage.quit();
 		checkoutPage.quit();
 		checkoutProcessPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

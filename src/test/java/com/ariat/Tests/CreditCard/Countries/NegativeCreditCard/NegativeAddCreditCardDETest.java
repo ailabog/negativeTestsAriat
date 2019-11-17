@@ -1,11 +1,9 @@
 package com.ariat.Tests.CreditCard.Countries.NegativeCreditCard;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import com.ariat.Enums.EUCountries;
 import com.ariat.Enums.Environments;
 import com.ariat.Enums.ListOfCreditCards;
@@ -46,14 +44,10 @@ public class NegativeAddCreditCardDETest extends BaseTest {
 	private static final String CARD_OWNER = "5654657665";
 	private static final String YEAR = "2023";
 	private static final String MONTH = "Januar";
-
-
 	private static final String YEAR1 = "2009";
 	private static final String MONTH1 = "Januar";
-
 	private static final String CARD_IDWILD = "#$%^&*(";
 	private static final String CARD_OWNERWILD = "@#$%^&*(";
-
 	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
 	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
 
@@ -136,7 +130,6 @@ public class NegativeAddCreditCardDETest extends BaseTest {
 		paymentInfoPage = addACreditCardPage.returnPaymentInformationPage();
 		paymentInfoPage.checkCreditCard(CARD_OWNER, typeCard.VISA.getName(), expirationDate);
 		logger.info("Finishing add negative credit card DE test");
-
 	}
 
 
@@ -167,11 +160,6 @@ public class NegativeAddCreditCardDETest extends BaseTest {
 	
 	@AfterTest
 	public void clearBrowserSession() {
-		KillChrome kill = new KillChrome();
-    }
-
-	@AfterSuite
-	public void tearDown() {
 		homePage.quit();
 		homePageUK.quit();
 		homePageDE.quit();
@@ -179,5 +167,6 @@ public class NegativeAddCreditCardDETest extends BaseTest {
 		addACreditCardPage.quit();
 		paymentInfoPage.quit();
 		myAccountPage.quit();
+		KillChrome kill = new KillChrome();
 	}
 }

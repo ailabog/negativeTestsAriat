@@ -29,7 +29,6 @@ public class EmailPreferencePage extends BasePage {
 	private By englishCheck = By.xpath("//*[@id=\"RegistrationForm\"]/div[1]/div[9]/div[1]/div[1]/span");
 	private By fashionCheck = By.xpath("//*[@id=\"RegistrationForm\"]/div[1]/div[9]/div[2]/div[3]/span");
 	private By otherCheck = By.xpath("//*[@id=\"RegistrationForm\"]/div[1]/div[5]/div/div/div[3]/span");
-	
 	private By apparelCheck = By.xpath("//*[@id=\"RegistrationForm\"]/div[1]/div[9]/div[1]/div[3]/span");
 	private By saveEditsButton = By.name("dwfrm_profile_confirm");
 	private By myAccountText = By.xpath("//*[contains(text(), 'My account']");
@@ -40,7 +39,6 @@ public class EmailPreferencePage extends BasePage {
 	private By genderCheck = By.id("RadioGender01");
 	private By monthSelect = By.id("dwfrm_profile_customer_customProfile_birthdayMonth");
 	private By daySelect = By.id("dwfrm_profile_customer_customProfile_birthdayDay");
-	
 	private By emailTxtBoxUS = By.id("ctl00_cphContent_txtEmail");
 	private By confirmEmailTxtBoxUS = By.id("ctl00_cphContent_txtConfirmEmail");
 	private By fNameTxtBoxUS = By.id("ctl00_cphContent_firstname");
@@ -133,8 +131,6 @@ public class EmailPreferencePage extends BasePage {
 		WebDriverUtils.selectVisibleText(driver, daySelect, dayValue);
 		
 	}
-	
-	
 	
 	public void savePrefUS() {
 		logger.info("Saving email preferences..");

@@ -31,12 +31,10 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 
 	private By signIn = By.xpath("//a[text()='Sign In']");
 	private By womenCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/a");
-	private By ourStoryImg = By.linkText("//img[contains(@href, 'We-Believe_973x1193px_3.jpg']");
 	private By returningCustomerText = By.xpath("//*text()='Returning customer']");
 	private By checkOrderText = By.xpath("//*text()='Check an order / request return']");
 	private By newcustomerText = By.xpath("//*text()='New Customer']");
 	private By womenText = By.xpath("//*contains(text(),'Women']");
-		
 	private By findARetailerFooter = By.xpath("//a[contains(text(),'Find a Retailer')]");
 	private By findARetailerText = By.xpath("//h1[text()='Find a retailer']");
 	private By wishListFooter = By.xpath("(//a[contains(text(),'Wishlist')])[2]");
@@ -54,15 +52,14 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 	private boolean showMinicart;
 	private By myAccountFooter = By.xpath("//a[contains(text(),'My Accounts')]");
 	private By myAccountText = By.xpath("//h2[text()='Returning customer']");
-	private By aboutUsHeader = By.linkText("About Us");
 	private By ridingCategory = By.xpath("//*[@id=\"global-nav-container\"]/li[1]/div[2]/div/div[2]/ul[1]/li/ul/li[1]/a");
 
 
 	public void search(String option) {
 		logger.info("Searching for a product...");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, search);
 		WebDriverUtils.enterTextBox(driver, searchTextBox, option);
-		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 	}
 
 	public void assertProductDisplayed(String expectedText) {
@@ -72,14 +69,14 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 
 	public void seeAllproducts() {
 		logger.info("Display all the products...");
-		WebDriverUtils.clickOnElementWithWait(driver, seeAllproductsLink);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
-	}
+		WebDriverUtils.clickOnElementWithWait(driver, seeAllproductsLink);
+  }
 
 	public void closeSearch() {
 		logger.info("Close serach products...");
-		WebDriverUtils.clickOnElementWithWait(driver, closeSearch);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		WebDriverUtils.clickOnElementWithWait(driver, closeSearch);
 	}
 	
 	public SignInPage returnSignInPage() {
@@ -108,6 +105,7 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 
 	public FindARetailerPage returnFindARetailer() {
 		WebDriverUtils.scrollBottomPage(driver, findARetailerFooter);
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, findARetailerFooter);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(findARetailerText));
@@ -116,6 +114,7 @@ public class HomePageUK extends BasePage implements List<HomePage> {
 
 	public SignInPage returnSignInPageFromFooter() {
 		WebDriverUtils.scrollBottomPage(driver, myAccountFooter);
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, myAccountFooter);
 		WebDriverUtils.waitUntil(driver, WebDriverUtils.WAIT_4000_SECONDS,
 				ExpectedConditions.invisibilityOfElementLocated(myAccountText));

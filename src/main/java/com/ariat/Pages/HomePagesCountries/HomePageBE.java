@@ -28,7 +28,6 @@ public class HomePageBE extends BasePage implements List<HomePage>{
 	private By checkOrderText = By.xpath("//*text()='Check an order / request return']");
 	private By newcustomerText = By.xpath("//*text()='New Customer']");
 	private By signIn = By.xpath("//a[text()= 'Sign In']");
-	
 	private By search = By.xpath("//*[@id=\"header-main-content\"]/div/div[5]/div/div[1]/span[2]");
 	private By searchTextBox = By.xpath("//input[@placeholder='Search for Products']");
 	private By textMsgProduct = By.xpath("//*[@id=\"search-suggestions-results\"]/div/div[1]/div[1]");
@@ -43,9 +42,9 @@ public class HomePageBE extends BasePage implements List<HomePage>{
 	
 	public void search(String option) {
 		logger.info("Searching for a product...");
+		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.clickOnElementWithWait(driver, search);
 		WebDriverUtils.enterTextBox(driver, searchTextBox, option);
-		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 	}
 
 	public void assertProductDisplayed(String expectedText) {
