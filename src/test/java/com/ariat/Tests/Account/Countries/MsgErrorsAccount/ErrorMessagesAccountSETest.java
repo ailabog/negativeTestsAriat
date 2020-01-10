@@ -66,8 +66,7 @@ public class ErrorMessagesAccountSETest extends BaseTest {
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageSE = (HomePageSE) homePage.chooseEULocation(euCountry.SE, euCountry.SE.getCurrencyISO());
 		signInPage = homePageSE.returnSignInPage();
-		signInPage.returningCustomer(OK_EMAIL, "EnglishUK");
-		signInPage.returningPassword(WRONG_PASSWORD);
+		signInPage.setLoginDetails(OK_EMAIL, "EnglishUK", WRONG_PASSWORD);
 		signInPage.loginClick();
 		signInPage.assertWrongPasswordMessage(MISMATCH_PASS_MSG);
 		logger.info("Finishing returning customer wrong password test...");
@@ -81,8 +80,7 @@ public class ErrorMessagesAccountSETest extends BaseTest {
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageSE = (HomePageSE) homePage.chooseEULocation(euCountry.SE, euCountry.SE.getCurrencyISO());
 		signInPage = homePageSE.returnSignInPage();
-		signInPage.returningCustomer(WRONG_EMAIL, "EnglishUK");
-		signInPage.returningPassword(OK_PASSWORD);
+		signInPage.setLoginDetails(WRONG_EMAIL, "EnglishUK", OK_PASSWORD);
 		signInPage.loginClick();
 		signInPage.assertWrongEmailMessage(MISMATCH_PASS_MSG);
 		logger.info("Finishing returning customer wrong email test...");
@@ -96,8 +94,7 @@ public class ErrorMessagesAccountSETest extends BaseTest {
 		homePageUK = (HomePageUK) homePage.chooseEULocation(euCountry.UK, euCountry.UK.getCurrencyISO());
 		homePageSE = (HomePageSE) homePage.chooseEULocation(euCountry.SE, euCountry.SE.getCurrencyISO());
 		signInPage = homePageSE.returnSignInPage();
-		signInPage.returningCustomer(OK_EMAIL, "EnglishUK");
-		signInPage.returningPassword(OK_PASSWORD);
+		signInPage.setLoginDetails(OK_EMAIL, "EnglishUK", OK_PASSWORD);
 		myAccountPage = signInPage.returnMyAccountPage();
 		myAccountPage.logoutMiddle();
 		logger.info("I was succesfully logged out from the application!");

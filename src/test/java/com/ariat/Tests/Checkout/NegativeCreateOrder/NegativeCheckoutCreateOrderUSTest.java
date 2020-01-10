@@ -80,7 +80,7 @@ public class NegativeCheckoutCreateOrderUSTest extends BaseTest {
 	}
 
 	@Test(priority=0)
-	public void checkoutNegativeCreateOrderInvalidContactInfoAndShippingAddress() {
+	public void checkoutNegativeCreateOrderInvalidContactInfoAndShippingAddressUS() {
 		logger.info("Starting checkout -> create negative order invalid shipping address...");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());

@@ -55,43 +55,39 @@ public class SignInPage extends BasePage {
 		super(driver);
 	}
 
-	public void returningCustomer(String email, String language) {
+	public void setLoginDetails(String email, String language, String password) {
 		switch (language) {
 		case "EnglishUK":
 			logger.info("Entering information for an existing customer: email address", email);
-			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 			WebDriverUtils.enterTextBox(driver, addressEmailTextBoxUK, email);
-		break;
-			
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+			break;
+
 		case "EnglishUS":
 			logger.info("Entering information for an existing customer: email address", email);
-			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 			WebDriverUtils.enterTextBox(driver, addressEmailTextBoxUS, email);
-		
-		 break;
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+			break;
 		case "Deutsch":
 			logger.info("Entering information for an existing customer: email address", email);
-			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 			WebDriverUtils.enterTextBox(driver, emailAddressTextBoxDE, email);
-			
-		break;
+			break;
 		case "Francais":
 			logger.info("Entering information for an existing customer: email address", email);
-			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 			WebDriverUtils.enterTextBox(driver, emailAddressTextBoxFR, email);
-			
-		break;
+			WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+			break;
 		default:
 			throw new RuntimeException("Language" + language + "not supported");
 		}
-	}
 
-	public void returningPassword(String password) {
 		logger.info("Entering information for an existing customer: password", password);
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
 		WebDriverUtils.enterTextBox(driver, passwordTextBox, password);
+		//WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);
+		//WebDriverUtils.clickOnElementWithWait(driver, loginButton);
 	}
-
+	
 	public void loginClick() {
 		logger.info("Logging into your account...");
 		WebDriverUtils.explicitWait(driver, WebDriverUtils.WAIT_4000_SECONDS);

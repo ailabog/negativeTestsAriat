@@ -1,7 +1,6 @@
 package com.ariat.Tests.Checkout.NegativeCreateOrder;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -73,7 +72,7 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 	}
 
 	@Test(priority=0)
-	public void checkoutNegativeCreateOrderInvalidContactInfoAndShippingAddress() {
+	public void checkoutNegativeCreateOrderInvalidContactInfoAndShippingAddressUK() {
 		logger.info("Starting checkout -> create negative order invalid shipping address...");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
@@ -103,8 +102,7 @@ public class NegativeCheckoutCreateOrderUKTest extends BaseTest {
 		logger.info("Finishing checkout -> create negative order invalid shipping address.");
 	}
 
-	
-	
+		
 	@AfterTest
 	public void clearBrowserSession() {
 		homePage.quit();

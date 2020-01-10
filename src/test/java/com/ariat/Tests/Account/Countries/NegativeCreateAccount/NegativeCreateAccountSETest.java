@@ -58,7 +58,7 @@ public class NegativeCreateAccountSETest extends BaseTest {
 	}
 
 	@Test(priority = 0)
-	public void negativeCreateAccountTest() {
+	public void negativeCreateAccountTestSE() {
 		logger.info("Starting create negative account test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
@@ -66,21 +66,14 @@ public class NegativeCreateAccountSETest extends BaseTest {
 		homePageSE = (HomePageSE) homePage.chooseEULocation(euCountry.SE, euCountry.SE.getCurrencyISO());
 		signInPage = homePageSE.returnSignInPage();
 		createAccountPage = signInPage.returnCreateAccountPage();
-		createAccountPage.firstName(FIRST_NAME);
-		createAccountPage.lastNameInfo(LAST_NAME);
-		createAccountPage.selectBirthMonth(BIRTH_MONTH);
-		createAccountPage.selectBirthDay(BIRTH_DAY);
-		createAccountPage.enterEmail(EMAIL);
-		createAccountPage.confirmEmail(EMAIL);
-		createAccountPage.enterPassword(PASSWORD);
-		createAccountPage.confirmPassword(PASSWORD);
+		createAccountPage.createAccount(FIRST_NAME, LAST_NAME, BIRTH_MONTH, BIRTH_DAY, EMAIL, EMAIL, PASSWORD, PASSWORD);
 		createAccountPage.createAccountClick();
 		createAccountPage.assertWrongNameCreateAccount(loggingMessage);
 		logger.info("Finishing negative create account test...");
 	}
 
 	@Test(priority = 1)
-	public void negativeCreateAccountTestWildcards() {
+	public void negativeCreateAccountTestWildcardsSE() {
 		logger.info("Starting create negative account test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
@@ -88,21 +81,14 @@ public class NegativeCreateAccountSETest extends BaseTest {
 		homePageSE = (HomePageSE) homePage.chooseEULocation(euCountry.SE, euCountry.SE.getCurrencyISO());
 		signInPage = homePageSE.returnSignInPage();
 		createAccountPage = signInPage.returnCreateAccountPage();
-		createAccountPage.firstName(FIRST_NAME1);
-		createAccountPage.lastNameInfo(LAST_NAME1);
-		createAccountPage.selectBirthMonth(BIRTH_MONTH);
-		createAccountPage.selectBirthDay(BIRTH_DAY);
-		createAccountPage.enterEmail(EMAIL1);
-		createAccountPage.confirmEmail(EMAIL1);
-		createAccountPage.enterPassword(PASSWORD);
-		createAccountPage.confirmPassword(PASSWORD);
+		createAccountPage.createAccount(FIRST_NAME1, LAST_NAME1, BIRTH_MONTH, BIRTH_DAY, EMAIL, EMAIL, PASSWORD, PASSWORD);
 		createAccountPage.createAccountClick();
 		createAccountPage.assertWrongNameCreateAccount(loggingMessage);
 		logger.info("Finishing negative create account test...");
 	}
 
 	@Test(priority = 2)
-	public void negativeCreateAccountTestMissingValues() {
+	public void negativeCreateAccountTestMissingValuesSE() {
 		logger.info("Starting create negative account test");
 		homePage = new HomePage(new ChromeDriver());
 		homePage.load(environment.DEVELOPMENT.getURL());
@@ -110,8 +96,7 @@ public class NegativeCreateAccountSETest extends BaseTest {
 		homePageSE = (HomePageSE) homePage.chooseEULocation(euCountry.SE, euCountry.SE.getCurrencyISO());
 		signInPage = homePageSE.returnSignInPage();
 		createAccountPage = signInPage.returnCreateAccountPage();
-		createAccountPage.firstName(FIRST_NAME);
-		createAccountPage.lastNameInfo(LAST_NAME);
+		createAccountPage.createAccount(FIRST_NAME, LAST_NAME, null, null, null, null, null, null);
 		createAccountPage.createAccountClick();
 		createAccountPage.asserCreateAccountMissingValues(missingLoggingValue);
 		logger.info("Finishing negative create account test...");
