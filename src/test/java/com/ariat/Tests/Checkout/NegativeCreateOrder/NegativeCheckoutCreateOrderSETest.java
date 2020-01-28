@@ -19,6 +19,7 @@ import com.ariat.Pages.Products.GlovesProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
 import com.ariat.Utils.KillChrome;
+import com.ariat.Utils.SetSelenium;
 
 /**
  * Checkout -> Negative Create new order
@@ -53,8 +54,7 @@ public class NegativeCheckoutCreateOrderSETest extends BaseTest {
 	public static final String MOBILE_NOK = GenerateRandomDataUtils.generateRandomString(7);
 	public static final String EMAIL_NOK = GenerateRandomDataUtils.generateRandomNumber(12);
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
-	public static final String EMAILEXISTENT = "aila.bogasieru@ariat.com";
-	public static final String PASSWORDEXISTENT = "Parola12345!";
+
 	public static final String CARD_NAME_OK = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String FIRST_NAME_OK = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String LAST_NAME_OK = GenerateRandomDataUtils.generateRandomString(7);
@@ -65,13 +65,10 @@ public class NegativeCheckoutCreateOrderSETest extends BaseTest {
 	public static final String ERROR_ORDER_NOT_PLACED ="We're sorry that your order could not be placed. This probably happened due to a high order volume or temporary connection errors. Please wait a few minutes and resubmit your order. We won't process your payment until you successfully place your order. If you have further questions, please contact us.";
 	public static final String ERROR_MESAGE = "Please enter a valid value";
 	
-
-	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
-	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
-	
 	@BeforeTest
-	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", ABSOLUTE_PATH);
+	public void setSeleniumUP() {
+	SetSelenium setPath = new SetSelenium();
+	setPath.setSelenium();
 	}
 
 	@Test(priority=0)

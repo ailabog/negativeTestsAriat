@@ -14,6 +14,7 @@ import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Pages.Header.SignInPage;
 import com.ariat.Utils.GenerateRandomDataUtils;
 import com.ariat.Utils.KillChrome;
+import com.ariat.Utils.SetSelenium;
 
 
 
@@ -46,12 +47,11 @@ public class NegativeCreateAccountUKTest extends BaseTest {
 	public static final String FIRST_NAME1 = "@#$%^&*()";
 	public static final String LAST_NAME1 = "@#$%^&*()";
 	public static final String EMAIL1 = "@#$%^&*()";
-	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
-	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
 	
 	@BeforeTest
-	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", ABSOLUTE_PATH);
+	public void setSeleniumUP() {
+	SetSelenium setPath = new SetSelenium();
+	setPath.setSelenium();
 	}
 
 	@Test(priority = 0)

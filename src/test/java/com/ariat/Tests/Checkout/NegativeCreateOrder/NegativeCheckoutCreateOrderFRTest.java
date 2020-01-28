@@ -20,6 +20,7 @@ import com.ariat.Pages.Products.GlovesProductPage;
 import com.ariat.Tests.Base.BaseTest;
 import com.ariat.Utils.GenerateRandomDataUtils;
 import com.ariat.Utils.KillChrome;
+import com.ariat.Utils.SetSelenium;
 
 /**
  * Checkout -> Negative Create new order
@@ -55,8 +56,7 @@ public class NegativeCheckoutCreateOrderFRTest extends BaseTest {
 	public static final String MOBILE = GenerateRandomDataUtils.generateRandomString(7);
 	public static final String EMAIL = GenerateRandomDataUtils.generateRandomNumber(12);
 	public static final String PASSWORD = GenerateRandomDataUtils.generateRandomString(10);
-	public static final String EMAILEXISTENT = "aila.bogasieru@ariat.com";
-	public static final String PASSWORDEXISTENT = "Parola12345!";
+
 	public static final String CARD_NAME1 = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String FIRST_NAME1 = GenerateRandomDataUtils.generateRandomString(5);
 	public static final String LAST_NAME1 = GenerateRandomDataUtils.generateRandomString(7);
@@ -65,14 +65,13 @@ public class NegativeCheckoutCreateOrderFRTest extends BaseTest {
 	public static final String ZIP_CODE1 = GenerateRandomDataUtils.generateRandomNumber(5);
 	public static final String MOBILE1 = GenerateRandomDataUtils.generateRandomNumber(7);
 	public static final String ERROR_MESSAGE = "Veuillez saisir une valeur correcte";
-	public static final String RELATIV_PATH = "/src/test/resources/chromedriver/chromedriver.exe";
-	public static final String ABSOLUTE_PATH = System.getProperty("user.dir")+ RELATIV_PATH;
 	
 	@BeforeTest
-	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", ABSOLUTE_PATH);
+	public void setSeleniumUP() {
+	SetSelenium setPath = new SetSelenium();
+	setPath.setSelenium();
 	}
-
+	
 	@Test(priority=0)
 	public void checkoutNegativeCreateOrderInvalidContactInfoAndShippingAddress() {
 		logger.info("Starting checkout -> create negative order invalid shipping address...");
