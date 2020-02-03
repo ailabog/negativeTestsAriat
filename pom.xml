@@ -15,14 +15,21 @@
    <selenium.version>3.4.0</selenium.version>
    <slf4j.version>1.7.25</slf4j.version>
    <logback.version>1.2.3</logback.version>
+   <jackson-core.version>2.5.0</jackson-core.version>
+   <jackson-databind.version>2.5.0</jackson-databind.version>
+   <jackson-annotations.version>2.5.0</jackson-annotations.version>
+   <jmh.version>0.5.3</jmh.version>
    <maven.compiler.version>3.6.1</maven.compiler.version>
    <maven.surefire.version>2.22.2</maven.surefire.version>
    <maven.failsafe.version>2.20</maven.failsafe.version>
+   <rxjava.version>0.16.1</rxjava.version>
+   <lambda.version>0.0.3</lambda.version>
+   <maven-surefire-report-plugin>3.0.0-M4</maven-surefire-report-plugin>
    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-       </properties>
+   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
 
   <dependencies>
     <dependency>
@@ -40,17 +47,17 @@
  <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-core</artifactId>
-    <version>2.5.0</version>
+    <version>${jackson-core.version}</version>
 </dependency>
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.5.0</version>
+    <version>${jackson-databind.version}</version>
 </dependency>
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-annotations</artifactId>
-    <version>2.5.0</version>
+    <version>${jackson-annotations.version}</version>
 </dependency>
      
   <dependency>
@@ -62,12 +69,12 @@
   <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <version>0.5.3</version>
+            <version>${jmh.version}</version>
   </dependency>
         <dependency>
             <groupId>com.netflix.rxjava</groupId>
             <artifactId>rxjava-core</artifactId>
-            <version>0.16.1</version>
+            <version>${rxjava.version}</version>
         </dependency>
        
          <dependency>
@@ -80,7 +87,7 @@
 <dependency>
     <groupId>com.macasaet.lambda</groupId>
     <artifactId>fluent-lambda</artifactId>
-    <version>0.0.3</version>
+    <version>${lambda.version}</version>
 </dependency>
        
              
@@ -119,7 +126,7 @@
                 <configuration>
                  <forkCount>0</forkCount>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/Core/negativeTests/negativeTestsAllCountries.xml</suiteXmlFile>
+                       <suiteXmlFile>src/test/resources/Core/negativeTests/negativeTestsAllCountries.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -127,7 +134,7 @@
           <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.6.0</version>
+    <version>${maven-compiler-plugin.version}</version>
     <configuration>
         <source>1.8</source>
         <target>1.8</target>
@@ -172,7 +179,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>3.0.0-M3</version>
+        <version>${maven-surefire-report-plugin.version}</version>
       </plugin>
     </plugins>
   </reporting>
